@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Navbar from './Navbar'
 
 type PageProps = {
     title?: string
@@ -12,6 +13,7 @@ const Page: React.FC<PageProps> = (props) => {
         <title>{props.title || 'dsalib.com'}</title>
         <meta name="description" content={props.description || 'Checkout Daniel Salib on dsalib.com'}></meta>
       </Head>
+      <Navbar />
       {props.children}
     </div>
   );
