@@ -28,8 +28,8 @@ const Navbar = () => {
           <div className="w-full flex justify-between items-center">
             <div className="flex flex-grow items-center divide-x divide-gray-500">
               {/* Logo */}
-              <div className="text-xl text-gray-800 font-semibold pl-4 pr-4">
-                <Link href="/">Daniel Salib</Link>
+              <div className="text-4xl text-green-800 hover:text-green-900 font-semibold pl-4 pr-4 handwriting">
+                <Link href="/">DS</Link>
               </div>
               {/* Items */}
               <div className="hidden md:block">
@@ -39,9 +39,9 @@ const Navbar = () => {
                       <div
                         className={classNames(
                           item.href === router.pathname
-                            ? "bg-gray-100 text-gray-600"
-                            : "text-gray-700 hover:bg-gray-100 hover:text-gray-600",
-                          "px-2 py-1 rounded-md text-md font-medium cursor-pointer"
+                            ? "bg-gray-100 text-green-900"
+                            : "text-gray-700 hover:bg-gray-100 hover:text-green-900",
+                          "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
                         )}
                       >
                         {item.name}
@@ -56,12 +56,12 @@ const Navbar = () => {
                 <Socials/>
               </div>
               <div className="md:hidden">
-                <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-gray-400  focus:outline-none">
+                <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-green-900 focus:outline-none">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XIcon className="block h-8 w-8" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    <MenuIcon className="block h-8 w-8" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -75,9 +75,9 @@ const Navbar = () => {
                   href={item.href}
                   className={classNames(
                     item.href === router.pathname
-                      ? "bg-gray-100 text-gray-600"
-                      : "text-gray-700 hover:bg-gray-100 hover:text-gray-600",
-                    "px-2 py-1 rounded-md text-md font-medium cursor-pointer"
+                    ? "bg-gray-100 text-green-900"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-green-900",
+                    "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
                   )}
                 >
                   {item.name}
