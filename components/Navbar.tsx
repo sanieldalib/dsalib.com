@@ -7,6 +7,7 @@ import { Socials } from "./Socials";
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "Experience", href: "/experience" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -53,7 +54,7 @@ const Navbar = () => {
             </div>
             <div className="flex items-center mx-4">
               <div className="hidden md:block">
-                <Socials/>
+                <Socials />
               </div>
               <div className="md:hidden">
                 <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-green-900 focus:outline-none">
@@ -75,15 +76,15 @@ const Navbar = () => {
                   href={item.href}
                   className={classNames(
                     item.href === router.pathname
-                    ? "bg-gray-100 text-green-900"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-green-900",
+                      ? "bg-gray-100 text-green-900"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-green-900",
                     "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
                   )}
                 >
                   {item.name}
                 </a>
               ))}
-              <Socials center/>
+              <Socials center />
             </div>
           </Disclosure.Panel>
         </>
