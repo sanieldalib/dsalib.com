@@ -1,9 +1,15 @@
+import { Web3ReactProvider } from "@web3-react/core";
+import type { AppProps } from "next/app";
+import getLibrary from "../getLibrary";
 import 'tailwindcss/tailwind.css'
 import '../styles/style.css'
 
-import type { AppProps } from 'next/app'
-
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function NextWeb3App({ Component, pageProps }: AppProps) {
+  return (
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <Component {...pageProps} />
+    </Web3ReactProvider>
+  );
 }
-export default MyApp
+
+export default NextWeb3App;

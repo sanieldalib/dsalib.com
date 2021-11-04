@@ -4,12 +4,15 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import React, { useState } from "react";
 import { Socials } from "./Socials";
+import useEagerConnect from "../hooks/useEagerConnect";
+import Account from "./Account";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Experience", href: "/experience" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "Crypto", href: "/crypto" },
 ];
 
 const classNames = (...classes: string[]) => {
@@ -19,6 +22,7 @@ const classNames = (...classes: string[]) => {
 const Navbar = () => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const triedToEagerConnect = useEagerConnect();
   return (
     <Disclosure
       as="nav"
@@ -54,7 +58,14 @@ const Navbar = () => {
             </div>
             <div className="flex items-center mx-4">
               <div className="hidden md:block">
-                <Socials />
+                {router.pathname === "/crypto" ? (
+                  <div className="space-x-6 flex flex-row items-center">
+                    <div className="hidden lg:block">
+                      <Socials />
+                    </div>
+                    <Account triedToEagerConnect={triedToEagerConnect} />
+                  </div>
+                ) : <Socials />}
               </div>
               <div className="md:hidden">
                 <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-green-900 focus:outline-none">
@@ -85,6 +96,9 @@ const Navbar = () => {
                 </a>
               ))}
               <Socials center />
+              {router.pathname === "/crypto" && (
+                <Account triedToEagerConnect={triedToEagerConnect} />
+              )}
             </div>
           </Disclosure.Panel>
         </>

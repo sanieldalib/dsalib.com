@@ -5,7 +5,7 @@ type ExperienceItemProps = {
   image: string;
   date: string;
   location: string;
-  items?: [string];
+  items?: string[];
   link?: string;
   company?: string;
   swap?: boolean;
@@ -59,7 +59,7 @@ type ExperienceSectionComponent = React.FC<ExperienceSectionProps>;
 export const ExperienceSection: ExperienceSectionComponent = (props) => {
   return (
     <div>
-      <h1 className="text-2xl font-semibold mb-1">{props.title}</h1>
+      <h1 className="text-2xl font-semibold mb-1 handwriting">{props.title}</h1>
       <hr className="font-bold border-t-4 border-green-900 mb-4"></hr>
       {props.children}
     </div>
