@@ -10,13 +10,9 @@ export default function useEagerConnect() {
   useEffect(() => {
     injected.isAuthorized().then((isAuthorized) => {
       if (isAuthorized) {
-        setTimeout(
-          () =>
-            activate(injected, undefined, true).catch(() => {
-              setTried(true);
-            }),
-          500
-        );
+        activate(injected, undefined, true).catch(() => {
+          setTried(true);
+        });
       } else {
         setTried(true);
       }

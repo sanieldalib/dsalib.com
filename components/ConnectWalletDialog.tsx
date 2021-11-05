@@ -2,14 +2,12 @@ import { useWeb3React } from "@web3-react/core";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import Account from "./Account";
-import useEagerConnect from "../hooks/useEagerConnect";
 
 type ConnectWalletDialogProps = {
   isConnected: boolean
 }
 
 const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = (props) => {
-  const triedToEagerConnect = useEagerConnect();
   const [isOpen, updateOpen] = useState(!props.isConnected);
 
   return (
@@ -67,7 +65,7 @@ const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = (props) => {
 
                 <div className="mt-4 flex flex-row space-x-2">
                   <div className="text-">
-                    <Account triedToEagerConnect={triedToEagerConnect} />
+                    <Account />
                   </div>
                   <button
                     type="button"

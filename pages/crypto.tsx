@@ -1,13 +1,11 @@
 import { useWeb3React } from "@web3-react/core";
 import CryptoPage from "../components/CryptoPage";
-import useEagerConnect from "../hooks/useEagerConnect";
 import { CHAIN_NAMES } from "../util";
 import ConnectWalletDialog from "../components/ConnectWalletDialog";
 import type { NextPage } from "next";
 
 const Crypto: NextPage = () => {
-  const { active, account, library, chainId } = useWeb3React();
-  const triedToEagerConnect = useEagerConnect();
+  const { account, library, chainId } = useWeb3React();
   const isConnected = typeof account === "string" && !!library;
   console.log(isConnected)
 

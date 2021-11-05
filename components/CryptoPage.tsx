@@ -2,7 +2,6 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import { useWeb3React } from "@web3-react/core";
 import Page from "../components/Page";
-import useEagerConnect from "../hooks/useEagerConnect";
 import { CHAIN_NAMES } from "../util";
 
 type PageProps = {
@@ -12,7 +11,6 @@ type PageProps = {
 
 const CryptoPage: React.FC<PageProps> = (props) => {
   const { account, library, chainId } = useWeb3React();
-  const triedToEagerConnect = useEagerConnect();
   const isConnected = typeof account === "string" && !!library;
   return (
     <div

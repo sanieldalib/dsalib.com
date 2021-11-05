@@ -8,12 +8,8 @@ import { formatEtherscanLink, shortenHex, parseBalance } from "../util";
 import { BiLinkExternal } from "react-icons/bi";
 import ETHBalance from "./ETHBalance";
 
-type AccountProps = {
-  triedToEagerConnect: boolean;
-};
-
-const Account = ({ triedToEagerConnect }: AccountProps) => {
-  const { active, error, activate, chainId, account, setError } =
+const Account = () => {
+  const { active, error, activate, chainId, account, setError, deactivate } =
     useWeb3React();
 
   const {
@@ -25,6 +21,7 @@ const Account = ({ triedToEagerConnect }: AccountProps) => {
 
   // manage connecting state for injected connector
   const [connecting, setConnecting] = useState(false);
+  const [openMenu, toggleMenu] = useState(false);
   useEffect(() => {
     if (active || error) {
       setConnecting(false);
@@ -35,10 +32,6 @@ const Account = ({ triedToEagerConnect }: AccountProps) => {
   const ENSName = useENSName(account);
 
   if (error) {
-    return null;
-  }
-
-  if (!triedToEagerConnect) {
     return null;
   }
 
@@ -73,13 +66,13 @@ const Account = ({ triedToEagerConnect }: AccountProps) => {
           </button>
         ) : (
           <button
-            className="bg-green-100  rounded-md hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium rounded-md"
+            className="bg-green-100 hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium rounded-md"
             onClick={startOnboarding}
           >
-              <div className="flex flex-row items-center">
-                <img className="w-5 h-5 mr-1" src="metamask.svg"></img>{" "}
-                <div>Install MetaMask</div>
-              </div>
+            <div className="flex flex-row items-center">
+              <img className="w-5 h-5 mr-1" src="metamask.svg"></img>{" "}
+              <div>Install MetaMask</div>
+            </div>
           </button>
         )}
       </div>
@@ -91,27 +84,47 @@ const Account = ({ triedToEagerConnect }: AccountProps) => {
   }
 
   return (
-    <div className="flex flex-row items-center border border-green-800 border-opacity-50 font-medium">
-      <div className="text-black-800 px-2 text-md flex-grow">
-        <ETHBalance />
+    <div className="relative">
+      <div className="flex flex-row items-center border border-green-800 border-opacity-50 font-medium">
+        <div className="text-black-800 px-2 text-md flex-grow">
+          <ETHBalance />
+        </div>
+        <a
+          // {...{
+          //   href: formatEtherscanLink("Account", [chainId, account]),
+          //   target: "_blank",
+          //   rel: "noopener noreferrer",
+          // }}
+          onClick={() => toggleMenu(!openMenu)}
+        >
+          <div className="bg-gray-100 hover:bg-gray-200 text-green-800 px-2 py-2 text-md cursor-pointer flex-grow">
+            <div className="flex flex-row items-center justify-center">
+              <img className="w-4 h-4 mr-2" src="metamask.svg"></img>{" "}
+              <div>{ENSName || `${shortenHex(account, 4)}`}</div>
+            </div>
+          </div>
+        </a>
       </div>
-      <a
-        {...{
-          href: formatEtherscanLink("Account", [chainId, account]),
-          target: "_blank",
-          rel: "noopener noreferrer",
-        }}
-      >
-        <div className="bg-gray-100 hover:bg-gray-200 text-green-800 px-2 py-2 text-md cursor-pointer flex-grow">
-          <div className="flex flex-row items-center justify-center">
-            <img className="w-4 h-4 mr-2" src="metamask.svg"></img>{" "}
-            <div>{ENSName || `${shortenHex(account, 4)}`}</div>
+      {openMenu && (
+        <div className="absolute mt-2 right-0 flex flex-col border border-green-800 border-opacity-50 text-green-800 text-md w-max">
+          <div onClick={deactivate} className="bg-green-100 hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium">
+            Disconnect Wallet
+          </div>
+          <a
+            {...{
+              href: formatEtherscanLink("Account", [chainId, account]),
+              target: "_blank",
+              rel: "noopener noreferrer",
+            }}
+            className="flex flex-row items-center bg-green-100  hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium"
+          >
+            View on EthScan
             <div className="ml-2">
               <BiLinkExternal />
             </div>
-          </div>
+          </a>
         </div>
-      </a>
+      )}
     </div>
   );
 };

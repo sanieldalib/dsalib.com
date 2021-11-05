@@ -4,7 +4,6 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import React, { useState } from "react";
 import { Socials } from "./Socials";
-import useEagerConnect from "../hooks/useEagerConnect";
 import Account from "./Account";
 
 const navigation = [
@@ -22,7 +21,6 @@ const classNames = (...classes: string[]) => {
 const Navbar = () => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const triedToEagerConnect = useEagerConnect();
   return (
     <Disclosure
       as="nav"
@@ -63,7 +61,7 @@ const Navbar = () => {
                     <div className="hidden lg:block">
                       <Socials />
                     </div>
-                    <Account triedToEagerConnect={triedToEagerConnect} />
+                    <Account />
                   </div>
                 ) : <Socials />}
               </div>
@@ -97,7 +95,7 @@ const Navbar = () => {
               ))}
               <Socials center />
               {router.pathname === "/crypto" && (
-                <Account triedToEagerConnect={triedToEagerConnect} />
+                <Account />
               )}
             </div>
           </Disclosure.Panel>
