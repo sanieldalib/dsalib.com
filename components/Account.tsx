@@ -85,7 +85,7 @@ const Account = () => {
 
   return (
     <div className="relative">
-      <div className="flex flex-row items-center border border-green-800 border-opacity-50 font-medium">
+      <div className="rounded-md flex flex-row items-center border border-green-800 border-opacity-50 font-medium">
         <div className="text-black-800 px-2 text-md flex-grow">
           <ETHBalance />
         </div>
@@ -97,7 +97,7 @@ const Account = () => {
           // }}
           onClick={() => toggleMenu(!openMenu)}
         >
-          <div className="bg-gray-100 hover:bg-gray-200 text-green-800 px-2 py-2 text-md cursor-pointer flex-grow">
+          <div className="bg-gray-100 hover:bg-gray-200 text-green-800 px-2 py-2 text-md cursor-pointer flex-grow rounded-r-md">
             <div className="flex flex-row items-center justify-center">
               <img className="w-4 h-4 mr-2" src="metamask.svg"></img>{" "}
               <div>{ENSName || `${shortenHex(account, 4)}`}</div>
@@ -106,17 +106,17 @@ const Account = () => {
         </a>
       </div>
       {openMenu && (
-        <div className="absolute mt-2 right-0 flex flex-col border border-green-800 border-opacity-50 text-green-800 text-md w-max">
-          <div onClick={deactivate} className="bg-green-100 hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium">
+        <div className="absolute rounded-md mt-2 right-0 flex flex-col border border-green-800 border-opacity-50 text-green-800 text-md md:w-max w-full">
+          <a onClick={deactivate} className="bg-green-100 hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer font-medium rounded-t-md text-center">
             Disconnect Wallet
-          </div>
+          </a>
           <a
             {...{
               href: formatEtherscanLink("Account", [chainId, account]),
               target: "_blank",
               rel: "noopener noreferrer",
             }}
-            className="flex flex-row items-center bg-green-100  hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium"
+            className="flex flex-row items-center bg-green-100  hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium rounded-b-md text- justify-center"
           >
             View on EthScan
             <div className="ml-2">
