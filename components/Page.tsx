@@ -8,7 +8,7 @@ type PageProps = {
 
 const Page: React.FC<PageProps> = (props) => {
   return (
-    <div>
+    <div className="min-h-screen bg-white dark:bg-shadow-black">
       <Head>
         <title>{props.title || "dsalib.com"}</title>
         <meta

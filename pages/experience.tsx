@@ -21,6 +21,7 @@ const Experience: NextPage = () => {
                   date="July 2020 - Present"
                   location="Mountain View, CA"
                   items={["Software Engineer on the Mobile Tools Team"]}
+                  swap
                 />
                 <ExperienceItem
                   title="Software Engineer (Mobile Tools)"
@@ -30,6 +31,7 @@ const Experience: NextPage = () => {
                   date="June 2019 - August 2019"
                   location="San Francisco, CA"
                   items={["MSE in Data Science"]}
+                  swap
                 />
                 <ExperienceItem
                   title="Product Management Intern, CBS All Access"
@@ -39,6 +41,7 @@ const Experience: NextPage = () => {
                   date="June 2019 - August 2019"
                   location="San Francisco, CA"
                   items={["MSE in Data Science"]}
+                  swap
                 />
               </ExperienceSection>
               <ExperienceSection title="Education">

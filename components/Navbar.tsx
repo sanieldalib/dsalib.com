@@ -34,14 +34,14 @@ const Navbar = ({crypto} : NavbarProps) => {
   return (
     <Disclosure
       as="nav"
-      className="sticky z-40 top-0 w-full mx-auto blur-3xl bg-opacity-95  bg-white py-3"
+      className="sticky z-40 top-0 w-full mx-auto blur-3xl bg-opacity-95  bg-white dark:bg-shadow-black py-3"
     >
       {({ open }) => (
         <>
           <div className="w-full flex justify-between items-center">
             <div className="flex flex-grow items-center divide-x divide-gray-500">
               {/* Logo */}
-              <div className="text-4xl text-green-800 hover:text-green-900 font-semibold pl-4 pr-4 handwriting">
+              <div className="text-4xl text-green-800 dark:text-green-600 dark:hover:text-green-500 hover:text-green-900 font-semibold pl-4 pr-4 handwriting">
                 <Link href="/">DS</Link>
               </div>
               {/* Items */}
@@ -52,8 +52,8 @@ const Navbar = ({crypto} : NavbarProps) => {
                       <div
                         className={classNames(
                           item.href === router.pathname
-                            ? "bg-gray-100 text-green-900"
-                            : "text-gray-700 hover:bg-gray-100 hover:text-green-900",
+                            ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
+                            : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
                           "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
                         )}
                       >
@@ -95,8 +95,8 @@ const Navbar = ({crypto} : NavbarProps) => {
                   href={item.href}
                   className={classNames(
                     item.href === router.pathname
-                      ? "bg-gray-100 text-green-900"
-                      : "text-gray-700 hover:bg-gray-50 hover:text-green-900",
+                    ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
+                    : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
                     "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
                   )}
                 >

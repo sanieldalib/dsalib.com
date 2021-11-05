@@ -13,11 +13,11 @@ type NewsItemComponent = React.FC<NewsItemProps>;
 const NewsItem: NewsItemComponent = (props) => {
   return (
     <Link href={props.href}>
-      <div className="group border border-green-100 bg-green-100 bg-opacity-70 rounded-xl text-left p-2 hover:shadow-md hover:bg-opacity-100 cursor-pointer">
-        <h3 className="font-medium text-xl">{props.title}</h3>
-        <p className="font-light text-md mt-1" dangerouslySetInnerHTML={{ __html: props.subtitle}}></p>
-        <p className="font-light text-sm mt-1 text-gray-600">{props.date}</p>
-        <p className="no-underline mt-4 group-hover:underline text-blue-400">
+      <div className="group border border-green-200 rounded-xl text-left py-4 px-4 hover:shadow-md dark:border-green-500 dark:bg-gray-800 hover:scale-102 duration-150 transform cursor-pointer">
+        <h3 className="font-medium text-lg dark:text-gray-300">{props.title}</h3>
+        <p className="font-light text-md mt-1 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: props.subtitle}}></p>
+        <p className="font-light text-sm mt-1 text-gray-600 dark:text-gray-500">{props.date}</p>
+        <p className="mt-4 group-hover:underline text-green-400 dark:text-green-200">
           {props.linkText} →
         </p>
       </div>
