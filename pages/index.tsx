@@ -47,7 +47,7 @@ const Home: NextPage = () => {
                 title="🤑 Crypto Integration"
                 href="/crypto"
                 subtitle={`Integration with <span className="bg-green-50 hover:bg-green-100">
-                <span><img class='w-6 h-6 inline-block' src='metamask.svg'></span> MetaMask has been added - Web3 dApp coming soon.`}
+                <span><img class='w-6 h-6 inline-block' src='/metamask.svg'></span> MetaMask has been added - Web3 dApp coming soon.`}
                 linkText="Visit Crypto Page"
                 date="November 4, 2021"
               />

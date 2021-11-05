@@ -57,7 +57,7 @@ const Account = () => {
           >
             {isMetaMaskInstalled ? (
               <div className="flex flex-row items-center">
-                <img className="w-5 h-5 mr-1" src="metamask.svg"></img>{" "}
+                <img className="w-5 h-5 mr-1" src="/metamask.svg"></img>{" "}
                 <div>Connect to MetaMask</div>
               </div>
             ) : (
@@ -70,7 +70,7 @@ const Account = () => {
             onClick={startOnboarding}
           >
             <div className="flex flex-row items-center">
-              <img className="w-5 h-5 mr-1" src="metamask.svg"></img>{" "}
+              <img className="w-5 h-5 mr-1" src="/metamask.svg"></img>{" "}
               <div>Install MetaMask</div>
             </div>
           </button>
@@ -89,21 +89,16 @@ const Account = () => {
         <div className="text-black-800 px-2 text-md flex-grow">
           <ETHBalance />
         </div>
-        <a
-          // {...{
-          //   href: formatEtherscanLink("Account", [chainId, account]),
-          //   target: "_blank",
-          //   rel: "noopener noreferrer",
-          // }}
+        <div
           onClick={() => toggleMenu(!openMenu)}
         >
-          <div className="bg-gray-100 hover:bg-gray-200 text-green-800 px-2 py-2 text-md cursor-pointer flex-grow rounded-r-md">
+          <div className="bg-gray-100 hover:bg-gray-200 text-green-800 px-2 py-1 text-md cursor-pointer flex-grow rounded-r-md">
             <div className="flex flex-row items-center justify-center">
-              <img className="w-4 h-4 mr-2" src="metamask.svg"></img>{" "}
+              <img className="w-4 h-4 mr-2" src="/metamask.svg"></img>{" "}
               <div>{ENSName || `${shortenHex(account, 4)}`}</div>
             </div>
           </div>
-        </a>
+        </div>
       </div>
       {openMenu && (
         <div className="absolute rounded-md mt-2 right-0 flex flex-col border border-green-800 border-opacity-50 text-green-800 text-md md:w-max w-full">
@@ -118,7 +113,7 @@ const Account = () => {
             }}
             className="flex flex-row items-center bg-green-100  hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium rounded-b-md text- justify-center"
           >
-            View on EthScan
+            Etherscan
             <div className="ml-2">
               <BiLinkExternal />
             </div>

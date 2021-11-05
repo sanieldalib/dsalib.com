@@ -6,6 +6,10 @@ import React, { useState } from "react";
 import { Socials } from "./Socials";
 import Account from "./Account";
 
+type NavbarProps = {
+  crypto?: boolean
+}
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Experience", href: "/experience" },
@@ -18,8 +22,14 @@ const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(" ");
 };
 
-const Navbar = () => {
+const Navbar = ({crypto} : NavbarProps) => {
   const router = useRouter();
+  let isCrypto = crypto;
+
+  if (!crypto) {
+    isCrypto = router.pathname.includes('/crypto');
+  }
+
   const [open, setOpen] = useState(false);
   return (
     <Disclosure
@@ -54,10 +64,10 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center mx-4">
+            <div className="flex items-center mx-2">
               <div className="hidden md:block">
-                {router.pathname === "/crypto" ? (
-                  <div className="space-x-6 flex flex-row items-center">
+                {isCrypto ? (
+                  <div className="space-x-4 flex flex-row items-center">
                     <div className="hidden lg:block">
                       <Socials />
                     </div>
@@ -94,7 +104,7 @@ const Navbar = () => {
                 </a>
               ))}
               <Socials center />
-              {router.pathname === "/crypto" && (
+              {isCrypto && (
                 <Account />
               )}
             </div>
