@@ -1,4 +1,5 @@
 import seedrandom from 'seedrandom'
+import crypto from 'crypto';
 
 interface ArtworkPreset {
   ringCount: number;
@@ -81,14 +82,14 @@ const RANGES = {
  * @param {Number} [min]
  * @param {Boolean} [f]
  */
-const R = (max: number, min, rand: prng, f = true): number => {
+const R = (max: number, min:number, rand: prng, f = true): number => {
   return f
     ? Math.floor(rand() * (max - min) + min)
     : rand() * max;
 };
 
 export const randomPreset = (seed: string): ArtworkPreset => {
-	const rand = seedrandom(seed)
+	const rand = seedrandom(crypto.createHash('md5').update(seed).digest("hex"));
   return {
     ringCount: R(RANGES.ringCount.max, RANGES.ringCount.min, rand),
     dotSize: R(RANGES.dotSize.max, RANGES.dotSize.min, rand),
@@ -118,6 +119,7 @@ const coords = (number: number, arr: number[] = []) => {
 };
 
 export const generateSvg = (preset: ArtworkPreset) => {
+  console.log(preset)
   const {
     ringCount,
     dotSize,
