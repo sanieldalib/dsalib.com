@@ -1,4 +1,4 @@
-import seedrandom from 'seedrandom'
+import seedrandom from 'seedrandom';
 import crypto from 'crypto';
 
 interface ArtworkPreset {
@@ -82,7 +82,7 @@ const RANGES = {
  * @param {Number} [min]
  * @param {Boolean} [f]
  */
-const R = (max: number, min:number, rand: prng, f = true): number => {
+const R = (max: number, min:number, rand: any, f = true): number => {
   return f
     ? Math.floor(rand() * (max - min) + min)
     : rand() * max;
