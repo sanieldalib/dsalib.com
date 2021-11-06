@@ -20,9 +20,7 @@ const CryptoPage: React.FC<PageProps> = (props) => {
   }
   return (
     <div
-      className={`${
-        chainId && isConnected && chainId > 1 && `border-8 border-blue-600`
-      } min-h-full`}
+      className={`min-h-full`}
     >
       {/* Awaits eager connect to finish before displaying dialog */}
       {props.eagerConnect
@@ -35,7 +33,7 @@ const CryptoPage: React.FC<PageProps> = (props) => {
         {chainId && isConnected && typeof chainId === "number" && (
           <div
             className={`text-white ${
-              chainId === 1 ? "bg-green-800 px-1" : "bg-blue-600 pr-1"
+              chainId === 1 ? "bg-green-600 px-1" : "bg-blue-600 pl-1 w-full"
             } fixed bottom-0 font-bold`}
           >
             {CHAIN_NAMES[chainId]}

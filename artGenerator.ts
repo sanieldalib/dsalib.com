@@ -1,5 +1,5 @@
-import seedrandom from 'seedrandom';
-import crypto from 'crypto';
+import seedrandom from "seedrandom";
+import crypto from "crypto";
 
 interface ArtworkPreset {
   ringCount: number;
@@ -82,14 +82,24 @@ const RANGES = {
  * @param {Number} [min]
  * @param {Boolean} [f]
  */
-const R = (max: number, min:number, rand: any, f = true): number => {
-  return f
-    ? Math.floor(rand() * (max - min) + min)
-    : rand() * max;
+const R = (max: number, min: number, rand: any, f = true): number => {
+  return f ? Math.floor(rand() * (max - min) + min) : rand() * max;
 };
 
-export const randomPreset = (seed: string): ArtworkPreset => {
-	const rand = seedrandom(crypto.createHash('md5').update(seed).digest("hex"));
+export const dateToString = (date: Date) => {
+  const yyyy = `${date.getFullYear()}`;
+  const mm =
+    date.getMonth() < 10
+      ? `0${date.getMonth() + 1}`
+      : `${date.getMonth() + 1}`;
+  const dd = date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`;
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+export const randomPreset = (userString: string, date: string | Date = new Date()): ArtworkPreset => {
+  const dateSeed = date instanceof Date ? dateToString(date) : date
+  const seed = `${dateSeed}${userString}`;
+  const rand = seedrandom(crypto.createHash("md5").update(seed).digest("hex"));
   return {
     ringCount: R(RANGES.ringCount.max, RANGES.ringCount.min, rand),
     dotSize: R(RANGES.dotSize.max, RANGES.dotSize.min, rand),
@@ -106,7 +116,7 @@ export const randomPreset = (seed: string): ArtworkPreset => {
     hueBg: R(RANGES.hueBg.max, RANGES.hueBg.min, rand),
     satBg: R(RANGES.satBg.max, RANGES.satBg.min, rand),
     lightBg: R(RANGES.lightBg.max, RANGES.lightBg.min, rand),
-	seed
+    seed
   };
 };
 
@@ -119,7 +129,7 @@ const coords = (number: number, arr: number[] = []) => {
 };
 
 export const generateSvg = (preset: ArtworkPreset) => {
-  console.log(preset)
+  console.log(preset);
   const {
     ringCount,
     dotSize,
@@ -136,19 +146,18 @@ export const generateSvg = (preset: ArtworkPreset) => {
     hueBg,
     satBg,
     lightBg,
-	seed
+    seed,
   } = preset;
 
   const rand = seedrandom(seed);
-  rand()
-
 
   const cx = 500;
   const cy = 500;
   const fill = () =>
     `hsl(${R(hueMax, hueMin, rand)}, ${R(satMax, satMin, rand)}%, ${R(
       lightMax,
-      lightMin, rand
+      lightMin,
+      rand
     )}%)`;
   let s = `<svg data-app-elm="svg" id="svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" style="background-color: hsl(${hueBg}, ${satBg}%, ${lightBg}%)">
   <g id="g"></g><circle cx="${cx}" cy="${cy}" r="${dotSize}" fill="${fill()}" />`;
