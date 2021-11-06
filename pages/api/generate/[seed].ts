@@ -5,5 +5,5 @@ import { randomPreset, generateSvg } from "../../../artGenerator";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { seed } = req.query;
   res.setHeader('Content-Type', 'image/svg+xml')
-  res.send(generateSvg(randomPreset(`${seed}`)));
+  res.send(generateSvg(randomPreset(`${seed}`), false));
 }

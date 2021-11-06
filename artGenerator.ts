@@ -128,7 +128,7 @@ const coords = (number: number, arr: number[] = []) => {
   return arr;
 };
 
-export const generateSvg = (preset: ArtworkPreset) => {
+export const generateSvg = (preset: ArtworkPreset, dataString: boolean = true) => {
   console.log(preset);
   const {
     ringCount,
@@ -159,7 +159,7 @@ export const generateSvg = (preset: ArtworkPreset) => {
       lightMin,
       rand
     )}%)`;
-  let s = `<svg data-app-elm="svg" id="svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" style="background-color: hsl(${hueBg}, ${satBg}%, ${lightBg}%)">
+  let s = `${dataString ? 'data:image/svg+xml;utf8,' : ''}<svg data-app-elm="svg" id="svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" style="background-color: hsl(${hueBg}, ${satBg}%, ${lightBg}%)">
   <g id="g"></g><circle cx="${cx}" cy="${cy}" r="${dotSize}" fill="${fill()}" />`;
 
   for (let i = 1; i <= ringCount; i++) {
