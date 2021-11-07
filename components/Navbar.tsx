@@ -7,14 +7,14 @@ import { Socials } from "./Socials";
 import Account from "./Account";
 
 type NavbarProps = {
-  crypto?: boolean
-}
+  crypto?: boolean;
+};
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Experience", href: "/experience" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "mailto:danielsalib98@gmail.com", external: true },
   { name: "Crypto", href: "/crypto" },
 ];
 
@@ -22,12 +22,12 @@ const classNames = (...classes: string[]) => {
   return classes.filter(Boolean).join(" ");
 };
 
-const Navbar = ({crypto} : NavbarProps) => {
+const Navbar = ({ crypto }: NavbarProps) => {
   const router = useRouter();
   let isCrypto = crypto;
 
   if (!crypto) {
-    isCrypto = router.pathname.includes('/crypto');
+    isCrypto = router.pathname.includes("/crypto");
   }
 
   const [open, setOpen] = useState(false);
@@ -47,20 +47,35 @@ const Navbar = ({crypto} : NavbarProps) => {
               {/* Items */}
               <div className="hidden md:block">
                 <div className="space-x-2 flex flex-row pl-4">
-                  {navigation.map((item) => (
-                    <Link href={item.href} key={item.name}>
-                      <div
-                        className={classNames(
-                          item.href === router.pathname
-                            ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
-                            : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
-                          "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
-                        )}
-                      >
-                        {item.name}
-                      </div>
-                    </Link>
-                  ))}
+                  {navigation.map((item) =>
+                    item.external ? (
+                      <a href={item.href} key={item.name}>
+                        <div
+                          className={classNames(
+                            item.href === router.pathname
+                              ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
+                              : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
+                            "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
+                          )}
+                        >
+                          {item.name}
+                        </div>
+                      </a>
+                    ) : (
+                      <Link href={item.href} key={item.name}>
+                        <div
+                          className={classNames(
+                            item.href === router.pathname
+                              ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
+                              : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
+                            "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
+                          )}
+                        >
+                          {item.name}
+                        </div>
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
             </div>
@@ -73,7 +88,9 @@ const Navbar = ({crypto} : NavbarProps) => {
                     </div>
                     <Account />
                   </div>
-                ) : <Socials />}
+                ) : (
+                  <Socials />
+                )}
               </div>
               <div className="md:hidden">
                 <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-green-900 focus:outline-none">
@@ -95,8 +112,8 @@ const Navbar = ({crypto} : NavbarProps) => {
                   href={item.href}
                   className={classNames(
                     item.href === router.pathname
-                    ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
-                    : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
+                      ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
+                      : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
                     "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
                   )}
                 >
@@ -104,9 +121,7 @@ const Navbar = ({crypto} : NavbarProps) => {
                 </a>
               ))}
               <Socials center />
-              {isCrypto && (
-                <Account />
-              )}
+              {isCrypto && <Account />}
             </div>
           </Disclosure.Panel>
         </>

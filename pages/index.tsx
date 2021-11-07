@@ -27,7 +27,7 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div>
-              <h1 className="text-4xl font-semibold text-center lg:text-left handwriting text-green-800 dark:text-green-600">
+              <h1 className="text-4xl font-semibold text-center lg:text-left handwriting text-green-800 dark:text-green-500">
                 Hey there, I'm Daniel!
               </h1>
               <p className="text-lg pt-2 text-center lg:text-left dark:text-gray-400">
@@ -47,6 +47,18 @@ const Home: NextPage = () => {
                 result, it is an ongoing work and will be updated frequently.
                 Check back often for new things!
               </p>
+              <div className="flex flex-row space-x-4 mt-4 md:w-1/2">
+                <Link href="/experience">
+                  <button className="font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 flex-grow">
+                    Experience
+                  </button>
+                </Link>
+                <Link href="/projects">
+                  <button className="font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 flex-grow">
+                    Projects
+                  </button>
+                </Link>
+              </div>
             </div>
             <div className="mt-4 lg:hidden">
               <Socials center />
@@ -61,21 +73,21 @@ const Home: NextPage = () => {
                 Latest Changes
               </h1>
               <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <NewsItem
-                title="⚡ Crypto Integration"
-                href="/crypto"
-                subtitle={`Integration with <span className="bg-green-50 hover:bg-green-100">
+                <NewsItem
+                  title="⚡ Crypto Integration"
+                  href="/crypto"
+                  subtitle={`Integration with <span className="bg-green-50 hover:bg-green-100">
                 <span><img class='w-6 h-6 inline-block' src='/metamask.svg'></span> MetaMask has been added - Web3 dApp coming soon.`}
-                linkText="Visit"
-                date="November 4, 2021"
-              />
-              <NewsItem
-                title="📝 Experiences Updated"
-                href="/experience"
-                subtitle="Experiences have been updated to reflect Daniel's changes in employment."
-                linkText="Visit"
-                date="October 7, 2021"
-              />
+                  linkText="Visit"
+                  date="November 4, 2021"
+                />
+                <NewsItem
+                  title="📝 Experiences Updated"
+                  href="/experience"
+                  subtitle="Experiences have been updated to reflect Daniel's changes in employment."
+                  linkText="Visit"
+                  date="October 7, 2021"
+                />
               </div>
             </div>
           </div>
