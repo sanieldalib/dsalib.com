@@ -43,11 +43,11 @@ const Home: NextPage = () => {
                 , snowboarding, learning new things, and visiting new places.
               </p>
               <p className="text-lg pt-2 text-center lg:text-left dark:text-gray-400 font-semibold">
-                This site serves as both a portfolio and a creative space. As a
+                This site serves both as a portfolio and a creative space. As a
                 result, it is an ongoing work and will be updated frequently.
                 Check back often for new things!
               </p>
-              <div className="flex flex-row space-x-4 mt-4 md:w-1/2">
+              <div className="flex flex-row space-x-4 mt-4 lg:w-1/2">
                 <Link href="/experience">
                   <button className="font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 flex-grow">
                     Experience

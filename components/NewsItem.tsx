@@ -17,9 +17,11 @@ const NewsItem: NewsItemComponent = (props) => {
         <h3 className="font-medium text-lg dark:text-gray-300">{props.title}</h3>
         <p className="font-light text-md mt-1 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: props.subtitle}}></p>
         <p className="font-light text-sm mt-1 text-gray-600 dark:text-gray-500">{props.date}</p>
-        <p className="mt-4 font-bold group-hover:underline text-green-400 group-hover:text-green-600">
+        <div className='mt-4'>
+        <span className="font-bold bg-green-50 group-hover:bg-green-100  dark:bg-gray-700 dark:text-green-500 dark:group-hover:text-green-800 rounded-md px-1 py-px flex-grow-0">
           {props.linkText} →
-        </p>
+        </span>
+        </div>
       </div>
     </Link>
   );
