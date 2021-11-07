@@ -13,8 +13,12 @@ const Page: React.FC<PageProps> = (props) => {
   return (
     <div className="bg-white dark:bg-shadow-black">
       <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+          rel="stylesheet"
+        ></link>
         <title>{props.title || defaultTitle}</title>
-        <meta name="title" content={props.title || defaultTitle}/>
+        <meta name="title" content={props.title || defaultTitle} />
         <meta
           name="description"
           content={props.description || defaultDescription}
@@ -27,10 +31,7 @@ const Page: React.FC<PageProps> = (props) => {
         {/* Facebook Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dsalib.com/" />
-        <meta
-          property="og:title"
-          content={props.title || defaultTitle}
-        />
+        <meta property="og:title" content={props.title || defaultTitle} />
         <meta
           property="og:description"
           content={props.description || defaultDescription}
@@ -45,14 +46,10 @@ const Page: React.FC<PageProps> = (props) => {
           content="Checkout Daniel Salib on dsalib.com"
         />
         <meta property="twitter:image" content="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
-          rel="stylesheet"
-        ></link>
       </Head>
       <Navbar />
       <div className="min-h-screen">{props.children}</div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

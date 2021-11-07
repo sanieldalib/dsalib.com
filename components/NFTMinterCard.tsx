@@ -19,9 +19,6 @@ const NFTMinterCard = () => {
           <h2 className="text-md mt-2 dark:text-gray-400">
               My first forray into Web3.
           </h2>
-          <h2 className="text-center text-sm mt-6 dark:text-gray-400">
-              (Psst...the one seen here uses the seedphrase 'crypto'.)
-          </h2>
         </div>
       </div>
     </Link>

@@ -22,7 +22,7 @@ const Home: NextPage = () => {
                 className="rounded-full w-36 h-36 mx-auto"
                 src="/dsalib.png"
               />
-              <div className="mt-4 invisible lg:visible">
+              <div className="lg:mt-4 hidden lg:block">
                 <Socials center />
               </div>
             </div>
