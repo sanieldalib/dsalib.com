@@ -37,7 +37,7 @@ const Experience: NextPage = () => {
                   title="Product Management Intern, CBS All Access"
                   company="CBS Interactive"
                   link="https://cbsinteractive.com/"
-                  image="cbsi.jpg"
+                  image="cbsi.png"
                   date="June 2019 - August 2019"
                   location="San Francisco, CA"
                   items={["MSE in Data Science"]}
@@ -49,7 +49,7 @@ const Experience: NextPage = () => {
                   title="School of Engineering and Applied Sciences"
                   company="University of Pennsylvania"
                   link="https://upenn.edu"
-                  image="penn.jpg"
+                  image="penn.png"
                   date="August 2019 - May 2020"
                   location="Philadelphia, PA"
                   items={[
@@ -62,7 +62,7 @@ const Experience: NextPage = () => {
                   title=" Wharton School of Business"
                   company="University of Pennsylvania"
                   link="https://upenn.edu"
-                  image="penn.jpg"
+                  image="penn.png"
                   date="August 2016 - May 2020"
                   location="Philadelphia, PA"
                   swap

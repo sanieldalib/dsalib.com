@@ -11,7 +11,7 @@ import NewsItem from "../components/NewsItem";
 const Home: NextPage = () => {
   return (
     <div>
-      <Page title={"Daniel Salib"}>
+      <Page title={"Home | Daniel Salib"}>
         {/* Hello - Intro Section */}
         <div className="w-full p-4 bg-gray-100 dark:bg-gray-800">
           <div className="flex justify-center">
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
                 />
               </div>
               <div className="md:ml-4">
-                <h1 className="text-4xl font-semibold text-center handwriting dark:text-green-600">
+                <h1 className="text-4xl font-semibold text-center handwriting text-green-800 dark:text-green-600">
                 Hey there, I'm Daniel! 
                 </h1>
                 <p className="text-lg text-center pt-2 dark:text-gray-400">
