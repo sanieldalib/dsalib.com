@@ -5,8 +5,8 @@ const About: NextPage = () => {
   return (
     <div>
       <Page title={"Projects | Daniel Salib"}>
-      <div className="flex h-screen">
-          <div className="w-full p-4 py-36 bg-gray-200 dark:bg-gray-800 m-auto">
+      <div className="flex">
+          <div className="w-full p-4 py-36 bg-gray-200 dark:bg-gray-800">
             <h1 className="text-5xl font-semibold text-center handwriting text-green-800 dark:text-green-500">
               This page is coming soon.
             </h1>
