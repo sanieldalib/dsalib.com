@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 type PageProps = {
@@ -10,7 +11,7 @@ const Page: React.FC<PageProps> = (props) => {
   const defaultTitle = "Daniel Salib - dsalib.com";
   const defaultDescription = "Checkout Daniel Salib on dsalib.com";
   return (
-    <div className="min-h-screen bg-white dark:bg-shadow-black">
+    <div className="bg-white dark:bg-shadow-black">
       <Head>
         <title>{props.title || defaultTitle}</title>
         <meta name="title" content={props.title || defaultTitle}/>
@@ -50,7 +51,8 @@ const Page: React.FC<PageProps> = (props) => {
         ></link>
       </Head>
       <Navbar />
-      {props.children}
+      <div className="min-h-screen">{props.children}</div>
+      <Footer/>
     </div>
   );
 };

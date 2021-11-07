@@ -129,7 +129,6 @@ const coords = (number: number, arr: number[] = []) => {
 };
 
 export const generateSvg = (preset: ArtworkPreset, dataString: boolean = true) => {
-  console.log(preset);
   const {
     ringCount,
     dotSize,
