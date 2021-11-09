@@ -1,6 +1,6 @@
 import { useWeb3React } from "@web3-react/core";
 import { UserRejectedRequestError } from "@web3-react/injected-connector";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { injected } from "../connectors";
 import useENSName from "../hooks/useENSName";
 import useMetaMaskOnboarding from "../hooks/useMetaMaskOnboarding";
@@ -30,6 +30,24 @@ const Account = () => {
   }, [active, error, stopOnboarding]);
 
   const ENSName = useENSName(account);
+
+  // Setup to support clicking outside menu to close
+  const node = useRef<HTMLDivElement>(null);
+  const handleClick = (e: any) => {
+    if (node.current && node.current.contains(e.target)) {
+      return;
+    }
+
+    toggleMenu(false)
+
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, [])
 
   if (error) {
     return null;
@@ -101,7 +119,7 @@ const Account = () => {
         </div>
       </div>
       {openMenu && (
-        <div className="absolute rounded-md mt-2 right-0 flex flex-col border border-green-800 text-green-800 text-md md:w-max w-full">
+        <div ref={node} className="absolute rounded-md mt-2 right-0 flex flex-col border border-green-800 text-green-800 text-md md:w-max w-full">
           <a onClick={deactivate} className="bg-green-100 hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer font-medium rounded-t-md text-center">
             Disconnect Wallet
           </a>
