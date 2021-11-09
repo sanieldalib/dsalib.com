@@ -1,14 +1,10 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import Navbar from "../components/Navbar";
+import Link from "next/link";
 import Page from "../components/Page";
 import { Socials } from "../components/Socials";
-import { randomGreeting } from "../utils";
-import Link from "next/dist/client/link";
 import NewsItem from "../components/NewsItem";
 import DSLink from "../components/DSLink";
-import NFTMinterCard from "../components/NFTMinterCard";
+import { DefaultButton } from "../components/Buttons";
 
 const Home: NextPage = () => {
   return (
@@ -49,14 +45,18 @@ const Home: NextPage = () => {
               </p>
               <div className="flex flex-row space-x-4 mt-4 lg:w-1/2">
                 <Link href="/experience">
-                  <button className="font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 flex-grow">
+                  <div
+                    className={`font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
+                  >
                     Experience
-                  </button>
+                  </div>
                 </Link>
                 <Link href="/projects">
-                  <button className="font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 flex-grow">
+                  <div
+                    className={`font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
+                  >
                     Projects
-                  </button>
+                  </div>
                 </Link>
               </div>
             </div>

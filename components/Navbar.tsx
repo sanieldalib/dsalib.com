@@ -13,7 +13,7 @@ type NavbarProps = {
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Experience", href: "/experience" },
-  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
   { name: "Contact", href: "mailto:danielsalib98@gmail.com", external: true },
   { name: "Crypto", href: "/crypto" },
 ];
@@ -105,7 +105,7 @@ const Navbar = ({ crypto }: NavbarProps) => {
             </div>
           </div>
           <Disclosure.Panel className="md:hidden">
-            <div className="flex flex-col px-2 pt-2 pb-2 space-y-1 text-center">
+            <div className="flex flex-col px-2 pt-2 pb-2 space-y-1">
               {navigation.map((item) => (
                 <a
                   key={item.name}
@@ -114,14 +114,20 @@ const Navbar = ({ crypto }: NavbarProps) => {
                     item.href === router.pathname
                       ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
                       : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
-                    "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
+                    "px-2 py-1 rounded-md text-md font-medium cursor-pointer"
                   )}
                 >
                   {item.name}
                 </a>
               ))}
-              <Socials center />
-              {isCrypto && <Account />}
+              <div className="ml-1 pt-2">
+                <Socials />
+              </div>
+              {isCrypto && (
+                <div className="ml-1 pt-2">
+                  <Account />
+                </div>
+              )}
             </div>
           </Disclosure.Panel>
         </>

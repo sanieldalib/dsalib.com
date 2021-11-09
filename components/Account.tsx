@@ -58,7 +58,7 @@ const Account = () => {
       <div>
         {isWeb3Available ? (
           <button
-            className="bg-green-100 dark:bg-green-400 dark:hover:bg-green-300 rounded-md hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer flex-grow font-medium"
+            className="bg-green-100 dark:bg-green-400 dark:hover:bg-green-300 rounded-md hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer font-medium"
             disabled={connecting}
             onClick={() => {
               setConnecting(true);
@@ -109,6 +109,7 @@ const Account = () => {
         </div>
         <div
           onClick={() => toggleMenu(!openMenu)}
+          className="flex-grow"
         >
           <div className="bg-green-200 hover:bg-green-300  dark:bg-green-400 dark:hover:bg-green-300 text-green-800 px-2 py-1 text-md cursor-pointer flex-grow rounded-r-md">
             <div className="flex flex-row items-center justify-center">

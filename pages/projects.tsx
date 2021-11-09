@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Page from "../components/Page";
+import ProjectItem from "../components/ProjectItem";
 
 const About: NextPage = () => {
   return (

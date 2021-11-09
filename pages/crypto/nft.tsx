@@ -1,6 +1,7 @@
 import CryptoPage from "../../components/CryptoPage";
 import { randomPreset, generateSvg, dateToString } from "../../artGenerator";
 import { useState } from "react";
+import { DefaultButton } from "../../components/Buttons";
 
 const NFTMinter = () => {
   const [seed, setSeed] = useState("");
@@ -46,9 +47,7 @@ const NFTMinter = () => {
                 className="mt-2 py-2 bg-gray-100 dark:bg-gray-200 px-4 rounded-md text-md hover:ring-2 focus:outline-none ring-gray-100 dark:ring-gray-800 flex-grow"
               />
               {date === dateToString(new Date()) && (
-                <button className="mt-4 py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200">
-                  Mint
-                </button>
+                <DefaultButton className="mt-4">Mint</DefaultButton>
               )}
             </div>
           </div>
