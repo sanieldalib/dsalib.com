@@ -176,12 +176,28 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    "approve(address,uint256)"(
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     balanceOf(
       owner: string,
       overrides?: CallOverrides
     ): Promise<[BigNumber] & { balance: BigNumber }>;
 
+    "balanceOf(address)"(
+      owner: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { balance: BigNumber }>;
+
     getApproved(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string] & { operator: string }>;
+
+    "getApproved(uint256)"(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[string] & { operator: string }>;
@@ -192,9 +208,22 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
+    "isApprovedForAll(address,address)"(
+      owner: string,
+      operator: string,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
     name(overrides?: CallOverrides): Promise<[string]>;
 
+    "name()"(overrides?: CallOverrides): Promise<[string]>;
+
     ownerOf(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string] & { owner: string }>;
+
+    "ownerOf(uint256)"(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[string] & { owner: string }>;
@@ -220,19 +249,44 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    "setApprovalForAll(address,bool)"(
+      operator: string,
+      _approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<[boolean]>;
+
+    "supportsInterface(bytes4)"(
       interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
     symbol(overrides?: CallOverrides): Promise<[string]>;
 
+    "symbol()"(overrides?: CallOverrides): Promise<[string]>;
+
     tokenURI(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<[string]>;
 
+    "tokenURI(uint256)"(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
     transferFrom(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "transferFrom(address,address,uint256)"(
       from: string,
       to: string,
       tokenId: BigNumberish,
@@ -246,9 +300,25 @@ export interface IERC721Metadata extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  "approve(address,uint256)"(
+    to: string,
+    tokenId: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+  "balanceOf(address)"(
+    owner: string,
+    overrides?: CallOverrides
+  ): Promise<BigNumber>;
+
   getApproved(
+    tokenId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
+  "getApproved(uint256)"(
     tokenId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
@@ -259,9 +329,22 @@ export interface IERC721Metadata extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
+  "isApprovedForAll(address,address)"(
+    owner: string,
+    operator: string,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
   name(overrides?: CallOverrides): Promise<string>;
 
+  "name()"(overrides?: CallOverrides): Promise<string>;
+
   ownerOf(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+  "ownerOf(uint256)"(
+    tokenId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
 
   "safeTransferFrom(address,address,uint256)"(
     from: string,
@@ -284,16 +367,41 @@ export interface IERC721Metadata extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  "setApprovalForAll(address,bool)"(
+    operator: string,
+    _approved: boolean,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   supportsInterface(
+    interfaceId: BytesLike,
+    overrides?: CallOverrides
+  ): Promise<boolean>;
+
+  "supportsInterface(bytes4)"(
     interfaceId: BytesLike,
     overrides?: CallOverrides
   ): Promise<boolean>;
 
   symbol(overrides?: CallOverrides): Promise<string>;
 
+  "symbol()"(overrides?: CallOverrides): Promise<string>;
+
   tokenURI(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
+  "tokenURI(uint256)"(
+    tokenId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
   transferFrom(
+    from: string,
+    to: string,
+    tokenId: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "transferFrom(address,address,uint256)"(
     from: string,
     to: string,
     tokenId: BigNumberish,
@@ -307,9 +415,25 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    "approve(address,uint256)"(
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    "balanceOf(address)"(
+      owner: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getApproved(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    "getApproved(uint256)"(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
@@ -320,9 +444,22 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
+    "isApprovedForAll(address,address)"(
+      owner: string,
+      operator: string,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
     name(overrides?: CallOverrides): Promise<string>;
 
+    "name()"(overrides?: CallOverrides): Promise<string>;
+
     ownerOf(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+    "ownerOf(uint256)"(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -345,16 +482,41 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
+    "setApprovalForAll(address,bool)"(
+      operator: string,
+      _approved: boolean,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<boolean>;
+
+    "supportsInterface(bytes4)"(
       interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
     symbol(overrides?: CallOverrides): Promise<string>;
 
+    "symbol()"(overrides?: CallOverrides): Promise<string>;
+
     tokenURI(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
+    "tokenURI(uint256)"(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
     transferFrom(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    "transferFrom(address,address,uint256)"(
       from: string,
       to: string,
       tokenId: BigNumberish,
@@ -404,9 +566,25 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    "approve(address,uint256)"(
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    "balanceOf(address)"(
+      owner: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getApproved(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "getApproved(uint256)"(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -417,9 +595,22 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "isApprovedForAll(address,address)"(
+      owner: string,
+      operator: string,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
+    "name()"(overrides?: CallOverrides): Promise<BigNumber>;
+
     ownerOf(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "ownerOf(uint256)"(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -445,19 +636,44 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    "setApprovalForAll(address,bool)"(
+      operator: string,
+      _approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "supportsInterface(bytes4)"(
       interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
 
+    "symbol()"(overrides?: CallOverrides): Promise<BigNumber>;
+
     tokenURI(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    "tokenURI(uint256)"(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     transferFrom(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "transferFrom(address,address,uint256)"(
       from: string,
       to: string,
       tokenId: BigNumberish,
@@ -472,12 +688,28 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    "approve(address,uint256)"(
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     balanceOf(
       owner: string,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    "balanceOf(address)"(
+      owner: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getApproved(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "getApproved(uint256)"(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
@@ -488,9 +720,22 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    "isApprovedForAll(address,address)"(
+      owner: string,
+      operator: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    "name()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     ownerOf(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "ownerOf(uint256)"(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
@@ -516,19 +761,44 @@ export interface IERC721Metadata extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
+    "setApprovalForAll(address,bool)"(
+      operator: string,
+      _approved: boolean,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     supportsInterface(
+      interfaceId: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "supportsInterface(bytes4)"(
       interfaceId: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    "symbol()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     tokenURI(
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    "tokenURI(uint256)"(
+      tokenId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     transferFrom(
+      from: string,
+      to: string,
+      tokenId: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "transferFrom(address,address,uint256)"(
       from: string,
       to: string,
       tokenId: BigNumberish,

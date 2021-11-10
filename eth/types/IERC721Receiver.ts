@@ -76,6 +76,14 @@ export interface IERC721Receiver extends BaseContract {
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
+
+    "onERC721Received(address,address,uint256,bytes)"(
+      operator: string,
+      from: string,
+      tokenId: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
 
   onERC721Received(
@@ -86,8 +94,24 @@ export interface IERC721Receiver extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  "onERC721Received(address,address,uint256,bytes)"(
+    operator: string,
+    from: string,
+    tokenId: BigNumberish,
+    data: BytesLike,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   callStatic: {
     onERC721Received(
+      operator: string,
+      from: string,
+      tokenId: BigNumberish,
+      data: BytesLike,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    "onERC721Received(address,address,uint256,bytes)"(
       operator: string,
       from: string,
       tokenId: BigNumberish,
@@ -106,10 +130,26 @@ export interface IERC721Receiver extends BaseContract {
       data: BytesLike,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
+
+    "onERC721Received(address,address,uint256,bytes)"(
+      operator: string,
+      from: string,
+      tokenId: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     onERC721Received(
+      operator: string,
+      from: string,
+      tokenId: BigNumberish,
+      data: BytesLike,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "onERC721Received(address,address,uint256,bytes)"(
       operator: string,
       from: string,
       tokenId: BigNumberish,
