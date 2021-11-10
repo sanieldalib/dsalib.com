@@ -46,14 +46,14 @@ const Home: NextPage = () => {
               <div className="flex flex-row space-x-4 mt-4 lg:w-1/2">
                 <Link href="/experience">
                   <div
-                    className={`font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
+                    className={`py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
                   >
                     Experience
                   </div>
                 </Link>
                 <Link href="/projects">
                   <div
-                    className={`font-medium py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
+                    className={`py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
                   >
                     Projects
                   </div>
