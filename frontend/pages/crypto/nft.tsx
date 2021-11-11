@@ -1,8 +1,12 @@
 import CryptoPage from "../../components/CryptoPage";
-import { randomPreset, generateSvg, dateToString } from "../../controllers/artGenerator";
+import {
+  randomPreset,
+  generateSvg,
+  dateToString,
+} from "../../controllers/artGenerator";
 import { useState } from "react";
 
-import { RandomRadials } from "../../contracts/types/RandomRadials"
+import { RandomRadials } from "../../contracts/types/RandomRadials";
 import useRandomRadials from "../../hooks/useRandomRadials";
 import { useWeb3React } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
@@ -15,18 +19,22 @@ const NFTMinter = () => {
   const [isMinting, setIsMinting] = useState(false);
   const randomRadials = useRandomRadials();
   const nfts = getUsersRandomRadials();
-  const {data} = useIPFS('ipfs://bafyreiape6bxdy4fqfwqe6stxzlkqgc7ydqt4pfcll6ssmnytcma6n6pqe/metadata.json');
-
+  const { data } = useIPFS(
+    "ipfs://bafyreiape6bxdy4fqfwqe6stxzlkqgc7ydqt4pfcll6ssmnytcma6n6pqe/metadata.json"
+  );
 
   const mintNFT = async () => {
-    setIsMinting(true)
+    setIsMinting(true);
     const nftStorageResponse = await fetch(`/api/mint/${date}${seed}`);
-    const data = await nftStorageResponse.json()
+    const data = await nftStorageResponse.json();
     if (nftStorageResponse.ok && data && data.metadata) {
       const { metadata } = data;
-      const tokenUri = metadata.url
+      const tokenUri = metadata.url;
 
-      if (!tokenUri) { return; }
+      if (!tokenUri) {
+        setIsMinting(false);
+        return;
+      }
 
       await randomRadials?.mintRandomRadial(tokenUri);
     } else {
@@ -36,8 +44,8 @@ const NFTMinter = () => {
       return;
     }
 
-    setIsMinting(false)
-  }
+    setIsMinting(false);
+  };
 
   return (
     <CryptoPage title={"NFT Minter | dsalib.com"} eagerConnect>
@@ -80,9 +88,7 @@ const NFTMinter = () => {
               />
               {date === dateToString(new Date()) &&
                 (isMinting ? (
-                  <div
-                    className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-lg leading-6 font-medium rounded-md dark:bg-green-500  bg-green-300  text-gray-700 transform duration-150  flex-grow text-center cursor-not-allowed  opacity-70"
-                  >
+                  <div className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-lg leading-6 font-medium rounded-md dark:bg-green-500  bg-green-300  text-gray-700 transform duration-150  flex-grow text-center cursor-not-allowed  opacity-70">
                     <svg
                       className="animate-spin -ml-1 mr-2 h-5 w-5 text-gray-600"
                       xmlns="http://www.w3.org/2000/svg"
