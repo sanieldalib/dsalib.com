@@ -36,9 +36,9 @@ export default async function handler(
 
   res.status(200).send(seed);
 
-  // const nftStorageClient = new NFTStorage({
-  //   token: nftStorageApiKey,
-  // });
+  const nftStorageClient = new NFTStorage({
+    token: nftStorageApiKey,
+  });
 
   // try {
   //   const nftMetadata = {
