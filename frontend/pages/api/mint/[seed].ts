@@ -39,7 +39,7 @@ export default async function handler(
   });
 
   try {
-    const metadata = await nftStorageClient.store({
+    const nftMetadata = {
       name: `RandomRadial ${seed}`,
       description: `RandomRadial generated on ${today} with seed '${seed.substring(
         10
@@ -49,7 +49,10 @@ export default async function handler(
         `randomradial${seed}.svg`,
         { type: "image/svg+xml" }
       ),
-    });
+    }
+
+    console.log(nftMetadata);
+    const metadata = await nftStorageClient.store(nftMetadata);
 
     res.setHeader("Content-Type", "image/svg+xml");
     res.status(200).json({ status: "success", metadata: metadata });
