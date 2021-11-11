@@ -15,12 +15,12 @@ export default async function handler(
 
   // const nftStorageApiKey = process.env.NFT_STORAGE_API_KEY;
 
-  if (!nftStorageApiKey) {
-    res
-      .status(400)
-      .json({ error: "Cannot reach nft.storage. Try again later." });
-    return;
-  }
+  // if (!nftStorageApiKey) {
+  //   res
+  //     .status(400)
+  //     .json({ error: "Cannot reach nft.storage. Try again later." });
+  //   return;
+  // }
 
   if (Array.isArray(seed)) {
     res.status(400).json({ error: "Invalid seed." });
