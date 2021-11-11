@@ -1,9 +1,10 @@
+import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
 import { useEffect, useState } from "react";
 import { injected } from "../connectors";
 
 export default function useEagerConnect() {
-  const { activate, active } = useWeb3React();
+  const { activate, active } = useWeb3React<Web3Provider>();
 
   const [tried, setTried] = useState(false);
 

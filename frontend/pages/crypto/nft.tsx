@@ -1,9 +1,7 @@
 import CryptoPage from "../../components/CryptoPage";
-import { randomPreset, generateSvg, dateToString } from "../../artGenerator";
+import { randomPreset, generateSvg, dateToString } from "../../controllers/artGenerator";
 import { useState } from "react";
-import { DefaultButton } from "../../components/Buttons";
-import { DarkLoader, Loader } from "../../components/Loader";
-import { errors } from "ethers";
+import "../../types/RandomRadials-abi.json";
 
 const NFTMinter = () => {
   const [seed, setSeed] = useState("");
@@ -18,7 +16,7 @@ const NFTMinter = () => {
 
     } else {
       // handle error on ur
-      console.log(errors, data, nftStorageResponse);
+      console.log(data, nftStorageResponse);
       setIsMinting(false);
       return;
     }

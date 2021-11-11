@@ -1,3 +1,4 @@
+import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
 import Page from "../components/Page";
 import useEagerConnect from "../hooks/useEagerConnect";
@@ -12,7 +13,7 @@ type PageProps = {
 };
 
 const CryptoPage: React.FC<PageProps> = (props) => {
-  const { account, library, chainId } = useWeb3React();
+  const { account, library, chainId } = useWeb3React<Web3Provider>();
   const isConnected = typeof account === "string" && !!library;
   let eagerConnectAttempted;
   if (props.eagerConnect) {

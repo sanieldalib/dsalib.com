@@ -7,10 +7,11 @@ import useMetaMaskOnboarding from "../hooks/useMetaMaskOnboarding";
 import { formatEtherscanLink, shortenHex, parseBalance } from "../util";
 import { BiLinkExternal } from "react-icons/bi";
 import ETHBalance from "./ETHBalance";
+import { Web3Provider } from "@ethersproject/providers";
 
 const Account = () => {
   const { active, error, activate, chainId, account, setError, deactivate } =
-    useWeb3React();
+    useWeb3React<Web3Provider>();
 
   const {
     isMetaMaskInstalled,

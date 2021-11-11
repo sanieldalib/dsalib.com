@@ -1,4 +1,4 @@
-import { randomPreset, generateSvg } from "../artGenerator";
+import { randomPreset, generateSvg } from "../controllers/artGenerator";
 import Link from "next/link";
 
 const NFTMinterCard = () => {
