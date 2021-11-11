@@ -24,14 +24,12 @@ import type {
   OnEvent,
 } from "./common";
 
-export interface RandomRadialsInterface extends ethers.utils.Interface {
+export interface ERC721EnumerableInterface extends ethers.utils.Interface {
   functions: {
-    "MAX_NFTS()": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
-    "mintRandomRadial(string)": FunctionFragment;
     "name()": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
     "safeTransferFrom(address,address,uint256)": FunctionFragment;
@@ -45,7 +43,6 @@ export interface RandomRadialsInterface extends ethers.utils.Interface {
     "transferFrom(address,address,uint256)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "MAX_NFTS", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "approve",
     values: [string, BigNumberish]
@@ -58,10 +55,6 @@ export interface RandomRadialsInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "isApprovedForAll",
     values: [string, string]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "mintRandomRadial",
-    values: [string]
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(
@@ -102,7 +95,6 @@ export interface RandomRadialsInterface extends ethers.utils.Interface {
     values: [string, string, BigNumberish]
   ): string;
 
-  decodeFunctionResult(functionFragment: "MAX_NFTS", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(
@@ -111,10 +103,6 @@ export interface RandomRadialsInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "isApprovedForAll",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "mintRandomRadial",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
@@ -182,12 +170,12 @@ export type TransferEvent = TypedEvent<
 
 export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 
-export interface RandomRadials extends BaseContract {
+export interface ERC721Enumerable extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
 
-  interface: RandomRadialsInterface;
+  interface: ERC721EnumerableInterface;
 
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
@@ -209,10 +197,6 @@ export interface RandomRadials extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    MAX_NFTS(overrides?: CallOverrides): Promise<[BigNumber]>;
-
-    "MAX_NFTS()"(overrides?: CallOverrides): Promise<[BigNumber]>;
-
     approve(
       to: string,
       tokenId: BigNumberish,
@@ -253,16 +237,6 @@ export interface RandomRadials extends BaseContract {
       operator: string,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
-
-    mintRandomRadial(
-      uri: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    "mintRandomRadial(string)"(
-      uri: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
@@ -370,10 +344,6 @@ export interface RandomRadials extends BaseContract {
     ): Promise<ContractTransaction>;
   };
 
-  MAX_NFTS(overrides?: CallOverrides): Promise<BigNumber>;
-
-  "MAX_NFTS()"(overrides?: CallOverrides): Promise<BigNumber>;
-
   approve(
     to: string,
     tokenId: BigNumberish,
@@ -414,16 +384,6 @@ export interface RandomRadials extends BaseContract {
     operator: string,
     overrides?: CallOverrides
   ): Promise<boolean>;
-
-  mintRandomRadial(
-    uri: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  "mintRandomRadial(string)"(
-    uri: string,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
 
@@ -525,10 +485,6 @@ export interface RandomRadials extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    MAX_NFTS(overrides?: CallOverrides): Promise<BigNumber>;
-
-    "MAX_NFTS()"(overrides?: CallOverrides): Promise<BigNumber>;
-
     approve(
       to: string,
       tokenId: BigNumberish,
@@ -569,16 +525,6 @@ export interface RandomRadials extends BaseContract {
       operator: string,
       overrides?: CallOverrides
     ): Promise<boolean>;
-
-    mintRandomRadial(
-      uri: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    "mintRandomRadial(string)"(
-      uri: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
@@ -716,10 +662,6 @@ export interface RandomRadials extends BaseContract {
   };
 
   estimateGas: {
-    MAX_NFTS(overrides?: CallOverrides): Promise<BigNumber>;
-
-    "MAX_NFTS()"(overrides?: CallOverrides): Promise<BigNumber>;
-
     approve(
       to: string,
       tokenId: BigNumberish,
@@ -759,16 +701,6 @@ export interface RandomRadials extends BaseContract {
       owner: string,
       operator: string,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    mintRandomRadial(
-      uri: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    "mintRandomRadial(string)"(
-      uri: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -878,10 +810,6 @@ export interface RandomRadials extends BaseContract {
   };
 
   populateTransaction: {
-    MAX_NFTS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    "MAX_NFTS()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     approve(
       to: string,
       tokenId: BigNumberish,
@@ -924,16 +852,6 @@ export interface RandomRadials extends BaseContract {
       owner: string,
       operator: string,
       overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    mintRandomRadial(
-      uri: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    "mintRandomRadial(string)"(
-      uri: string,
-      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
