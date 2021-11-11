@@ -13,7 +13,7 @@ export default async function handler(
 ) {
   const { seed } = req.query;
 
-  const nftStorageApiKey = process.env.NFT_STORAGE_API_KEY;
+  // const nftStorageApiKey = process.env.NFT_STORAGE_API_KEY;
 
   if (!nftStorageApiKey) {
     res
@@ -34,9 +34,9 @@ export default async function handler(
     return;
   }
 
-  const nftStorageClient = new NFTStorage({
-    token: nftStorageApiKey,
-  });
+  // const nftStorageClient = new NFTStorage({
+  //   token: nftStorageApiKey,
+  // });
 
   try {
     const nftMetadata = {
@@ -52,10 +52,10 @@ export default async function handler(
     }
 
     console.log(nftMetadata);
-    const metadata = await nftStorageClient.store(nftMetadata);
+    // const metadata = await nftStorageClient.store(nftMetadata);
 
     res.setHeader("Content-Type", "image/svg+xml");
-    res.status(200).json({ status: "success", metadata: metadata });
+    res.status(200).json({ status: "success", metadata: nftMetadata });
   } catch (e) {
     res.send(e);
   }
