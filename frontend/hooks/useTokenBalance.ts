@@ -1,32 +1,38 @@
+import { Web3Provider } from "@ethersproject/providers";
+import { useWeb3React } from "@web3-react/core";
 import useSWR from "swr";
-import type { ERC20 } from "../contracts/types";
+import type { RandomRadials } from "../contracts/types";
 import useKeepSWRDataLiveAsBlocksArrive from "./useKeepSWRDataLiveAsBlocksArrive";
-import useTokenContract from "./useTokenContract";
+import useRandomRadials from "./useRandomRadials";
+import useTokenContract from "./useRandomRadials";
 
-function getTokenBalance(contract: ERC20 | null) {
-  return async (_: string, address: string) => {
-    if (!contract) {return undefined};
+function getRandomRadials(contract: RandomRadials) {
+  return async (_: string, address: string): Promise<string[]> => {
     const balance = await contract.balanceOf(address);
+    const ownedNFTs: string[] = [];
 
-    return balance;
+    if (!balance || balance.isZero()) {
+      return ownedNFTs;
+    }
+
+    for (var i = 0; balance.gt(i); i++) {
+      const tokenId = await contract.tokenOfOwnerByIndex(address, i);
+      const metadata = await contract.tokenURI(tokenId);
+      ownedNFTs.push(metadata);
+    }
+    return ownedNFTs;
   };
 }
 
-export default function useTokenBalance(
-  address: string | undefined | null,
-  tokenAddress: string,
-  suspense = false
-) {
-  const contract = useTokenContract(tokenAddress);
+export default function getUsersRandomRadials(suspense = false) {
+  const { account } = useWeb3React<Web3Provider>();
+  const contract = useRandomRadials();
 
-  const shouldFetch =
-    typeof address === "string" &&
-    typeof tokenAddress === "string" &&
-    !!contract;
+  const shouldFetch = !!account && !!contract;
 
   const result = useSWR(
-    shouldFetch ? ["TokenBalance", address, tokenAddress] : null,
-    getTokenBalance(contract),
+    shouldFetch ? ["RandomRadialsHoldings", account] : null,
+    getRandomRadials(contract!),
     {
       suspense,
     }
@@ -34,5 +40,5 @@ export default function useTokenBalance(
 
   useKeepSWRDataLiveAsBlocksArrive(result.mutate);
 
-  return result;
+  return result.data;
 }

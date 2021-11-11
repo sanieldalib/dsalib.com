@@ -1,0 +1,1 @@
+export type ChainAddressMapping = Record<3, string>;

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { randomPreset, generateSvg, dateToString } from "../../../artGenerator";
+import { randomPreset, generateSvg, dateToString } from "../../../controllers/artGenerator"
 import { NFTStorage, File } from "nft.storage";
 
 export default async function handler(

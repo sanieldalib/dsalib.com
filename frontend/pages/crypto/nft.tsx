@@ -1,19 +1,34 @@
 import CryptoPage from "../../components/CryptoPage";
 import { randomPreset, generateSvg, dateToString } from "../../controllers/artGenerator";
 import { useState } from "react";
-import "../../types/RandomRadials-abi.json";
+
+import { RandomRadials } from "../../contracts/types/RandomRadials"
+import useRandomRadials from "../../hooks/useRandomRadials";
+import { useWeb3React } from "@web3-react/core";
+import { Web3Provider } from "@ethersproject/providers";
+import getUsersRandomRadials from "../../hooks/useTokenBalance";
+import useIPFS from "../../hooks/useIPFS";
 
 const NFTMinter = () => {
   const [seed, setSeed] = useState("");
   const [date, setDate] = useState(dateToString(new Date()));
   const [isMinting, setIsMinting] = useState(false);
+  const randomRadials = useRandomRadials();
+  const nfts = getUsersRandomRadials();
+  const {data} = useIPFS('ipfs://bafyreiape6bxdy4fqfwqe6stxzlkqgc7ydqt4pfcll6ssmnytcma6n6pqe/metadata.json');
+
 
   const mintNFT = async () => {
     setIsMinting(true)
     const nftStorageResponse = await fetch(`/api/mint/${date}${seed}`);
     const data = await nftStorageResponse.json()
     if (nftStorageResponse.ok && data && data.metadata) {
+      const { metadata } = data;
+      const tokenUri = metadata.url
 
+      if (!tokenUri) { return; }
+
+      await randomRadials?.mintRandomRadial(tokenUri);
     } else {
       // handle error on ur
       console.log(data, nftStorageResponse);
@@ -101,6 +116,8 @@ const NFTMinter = () => {
             </div>
           </div>
         </div>
+        {nfts}
+        {/* {data && <img src={generateSvg(randomPreset(data.name.substring('RandomRadial '.length)))}/>} */}
       </div>
     </CryptoPage>
   );
