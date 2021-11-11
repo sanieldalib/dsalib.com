@@ -4,7 +4,9 @@
   "description": "Ethereum smart contracts for dsalib.com written using Hardhat",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.ts --network ropsten"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +27,7 @@
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.3.2"
+    "@openzeppelin/contracts": "^4.3.2",
+    "dotenv": "^10.0.0"
   }
 }
