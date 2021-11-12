@@ -24,6 +24,8 @@ type RandomRadialStaticProps = {
   tokenId: string;
 };
 
+export const staticPageGenerationTimeout = "120";
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const provider = new AlchemyProvider("ropsten", process.env.ALCHEMY_API_KEY);
   const randomRadials = new Contract(
