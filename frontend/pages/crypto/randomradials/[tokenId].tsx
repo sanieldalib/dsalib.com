@@ -79,6 +79,8 @@ const RandomRadialPage = (props: RandomRadialStaticProps) => {
   return (
     <Page
       title={`#${props.tokenId} • ${props.name} | RandomRadials | dsalib.com`}
+      description="RandomRadials are NFTs composed of randomly generated images seeded on a provided string."
+      image={`https://dsalib.com/api/generate/${props.name}`}
     >
       <div className="w-full">
         <div className="flex flex-col lg:flex-row md:w-3/5 lg:w-5/6 px-6 py-2 items-center mx-auto md:mt-4 lg:my-8">

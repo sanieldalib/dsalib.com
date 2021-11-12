@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 type PageProps = {
   title?: string;
   description?: string;
+  image?: string;
 };
 
 const Page: React.FC<PageProps> = (props) => {
@@ -36,7 +37,7 @@ const Page: React.FC<PageProps> = (props) => {
           property="og:description"
           content={props.description || defaultDescription}
         />
-        <meta property="og:image" content="" />
+        <meta property="og:image" content={props.image} />
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://dsalib.com/" />
@@ -45,7 +46,7 @@ const Page: React.FC<PageProps> = (props) => {
           property="twitter:description"
           content="Checkout Daniel Salib on dsalib.com"
         />
-        <meta property="twitter:image" content="" />
+        <meta property="twitter:image" content={props.image} />
       </Head>
       <Navbar />
       <div className="min-h-screen">{props.children}</div>
