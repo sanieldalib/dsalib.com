@@ -13,7 +13,7 @@ export default async function handler(
 ) {
   const { seed } = req.query;
 
-  const nftStorageApiKey = process.env.NFT_STORAGE_API_KEY;
+  const nftStorageApiKey = process.env.NEXT_PUBLIC_NFT_STORAGE_API_KEY;
 
   if (!nftStorageApiKey) {
     res
