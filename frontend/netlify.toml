@@ -1,5 +1,2 @@
-[build]
-publish = "frontend/.next"
-
 [[plugins]]
-package = "@netlify/plugin-nextjs"
+package = "@netlify/plugin-nextjs@beta"
