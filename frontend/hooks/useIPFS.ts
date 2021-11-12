@@ -7,7 +7,7 @@ export default function useIPFS(ipfsLink: string) {
 
   const isIPFSLink = ipfsLink.startsWith("ipfs://");
   const [hash, path] = ipfsLink.substring(7).split("/");
-  const gatewayLink = `https://${hash}.ipfs.dweb.link/${path}`;
+  const gatewayLink = `https://cloudflare-ipfs.com/ipfs/${hash}/${path}`;
   const { data, error } = useSWR(isIPFSLink ? gatewayLink : null, fetcher);
 
   return {

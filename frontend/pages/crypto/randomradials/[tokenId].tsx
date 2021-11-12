@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps = async (
   const owner = await randomRadials.ownerOf(tokenId);
 
   const [hash, path] = tokenUri.substring(7).split("/");
-  const gatewayLink = `https://${hash}.ipfs.dweb.link/${path}`;
+  const gatewayLink = `https://cloudflare-ipfs.com/ipfs/${hash}/${path}`;
   const metadataRes = await fetch(gatewayLink);
   const metadata: RandomRadialTokenMetadata = await metadataRes.json();
 
