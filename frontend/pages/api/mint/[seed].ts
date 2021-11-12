@@ -22,6 +22,11 @@ export default async function handler(
     return;
   }
 
+  const nftStorageClient = new NFTStorage({
+    token: nftStorageApiKey,
+  });
+
+
   if (Array.isArray(seed)) {
     res.status(400).json({ error: "Invalid seed." });
     return;
@@ -35,10 +40,7 @@ export default async function handler(
   }
 
   res.status(200).send(seed);
-
-  const nftStorageClient = new NFTStorage({
-    token: nftStorageApiKey,
-  });
+  return;
 
   // try {
   //   const nftMetadata = {
