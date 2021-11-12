@@ -43,9 +43,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: "blocking" };
 };
 
-export const getStaticProps: GetStaticProps = async (
-  context
-): Promise<GetStaticPropsResult<RandomRadialStaticProps>> => {
+export const getStaticProps = async (context: any) => {
   const provider = new AlchemyProvider("ropsten", process.env.ALCHEMY_API_KEY);
   const randomRadials = new Contract(
     contractForChain[3],
@@ -54,23 +52,16 @@ export const getStaticProps: GetStaticProps = async (
   ) as RandomRadials;
 
   const { tokenId } = context.params as IParams;
-  const tokenUri = await randomRadials.tokenURI(tokenId);
-  const owner = await randomRadials.ownerOf(tokenId);
-
-  const [hash, path] = tokenUri.substring(7).split("/");
-  const gatewayLink = `https://cloudflare-ipfs.com/ipfs/${hash}/${path}`;
-  const metadataRes = await fetch(gatewayLink);
-  const metadata: RandomRadialTokenMetadata = await metadataRes.json();
-
-  return {
-    props: {
-      name: metadata.name,
-      description: metadata.description,
-      image: metadata.image,
-      tokenId: tokenId,
-      owner,
-    },
-  };
+  try {
+    const tokenUri = await randomRadials.tokenURI(tokenId);
+  } catch (e) {
+    return {
+      redirect: {
+        destination: "/404",
+        permanent: false,
+      },
+    };
+  }
 };
 
 const RandomRadialPage = (props: RandomRadialStaticProps) => {
