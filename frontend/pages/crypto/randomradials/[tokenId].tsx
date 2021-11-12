@@ -26,7 +26,7 @@ type RandomRadialStaticProps = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const provider = new AlchemyProvider("ropsten");
+  const provider = new AlchemyProvider("ropsten", process.env.ALCHEMY_API_KEY);
   const randomRadials = new Contract(
     contractForChain[3],
     RANDOMRADIALS_ABI,
