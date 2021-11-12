@@ -7,7 +7,7 @@ export function shortenHex(hex: string, length = 4) {
   )}`;
 }
 
-const ETHERSCAN_PREFIXES: { [s: number]: string; } = {
+const ETHERSCAN_PREFIXES: { [s: number]: string } = {
   1: "",
   3: "ropsten.",
   4: "rinkeby.",
@@ -15,7 +15,7 @@ const ETHERSCAN_PREFIXES: { [s: number]: string; } = {
   42: "kovan.",
 };
 
-export const CHAIN_NAMES: { [s: number]: string; } = {
+export const CHAIN_NAMES: { [s: number]: string } = {
   1: "MAINNET",
   3: "ROPSTEN",
   4: "RINKEBY",
@@ -24,13 +24,17 @@ export const CHAIN_NAMES: { [s: number]: string; } = {
 };
 
 export function formatEtherscanLink(
-  type: "Account" | "Transaction",
+  type: "Account" | "Transaction" | "Token",
   data: [number, string]
 ) {
   switch (type) {
     case "Account": {
       const [chainId, address] = data;
       return `https://${ETHERSCAN_PREFIXES[chainId]}etherscan.io/address/${address}`;
+    }
+    case "Token": {
+      const [chainId, address] = data;
+      return `https://${ETHERSCAN_PREFIXES[chainId]}etherscan.io/token/${address}`;
     }
     case "Transaction": {
       const [chainId, hash] = data;
