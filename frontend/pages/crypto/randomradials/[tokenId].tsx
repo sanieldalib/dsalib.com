@@ -52,9 +52,10 @@ export const getStaticProps = async (context: any) => {
   ) as RandomRadials;
 
   const { tokenId } = context.params as IParams;
-  try {
-    const tokenUri = await randomRadials.tokenURI(tokenId);
-  } catch (e) {
+  const tokenIdNumber = new Number(tokenId);
+  const minted = (await randomRadials.totalSupply()).toNumber() > tokenIdNumber;
+
+  if (!minted) {
     return {
       redirect: {
         destination: "/404",
@@ -62,11 +63,21 @@ export const getStaticProps = async (context: any) => {
       },
     };
   }
+  const tokenUri = await randomRadials.tokenURI(tokenId);
+  const owner = await randomRadials.ownerOf(tokenId);
+
+  const [hash, path] = tokenUri.substring(7).split("/");
+  const gatewayLink = `https://cloudflare-ipfs.com/ipfs/${hash}/${path}`;
+  const metadataRes = await fetch(gatewayLink);
+  const metadata: RandomRadialTokenMetadata = await metadataRes.json();
 
   return {
-    redirect: {
-      destination: "/404",
-      permanent: false,
+    props: {
+      name: metadata.name,
+      description: metadata.description,
+      image: metadata.image,
+      tokenId: tokenId,
+      owner,
     },
   };
 };
