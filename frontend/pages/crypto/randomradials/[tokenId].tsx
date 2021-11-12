@@ -62,6 +62,13 @@ export const getStaticProps = async (context: any) => {
       },
     };
   }
+
+  return {
+    redirect: {
+      destination: "/404",
+      permanent: false,
+    },
+  };
 };
 
 const RandomRadialPage = (props: RandomRadialStaticProps) => {
