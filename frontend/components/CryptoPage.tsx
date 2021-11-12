@@ -35,7 +35,7 @@ const CryptoPage: React.FC<PageProps> = (props) => {
           <div
             className={`text-white ${
               chainId === 1 ? "bg-green-600 px-1" : "bg-blue-600 pl-1 w-full bg-opacity-50"
-            } fixed bottom-0 font-bold`}
+            } fixed bottom-0 font-bold z-50`}
           >
             {CHAIN_NAMES[chainId]}
           </div>

@@ -3,7 +3,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import {
   randomPreset,
   generateSvg,
-  dateToString,
 } from "../../../controllers/artGenerator";
 import { NFTStorage, File } from "nft.storage";
 
@@ -31,22 +30,13 @@ export default async function handler(
     return;
   }
 
-  const today = dateToString(new Date());
-
-  if (!seed.startsWith(today)) {
-    res.status(400).json({ error: "Seed must be today to mint." });
-    return;
-  }
-
   try {
     const nftMetadata = {
-      name: `${seed.substring(10)}`,
-      description: `${seed.substring(
-        10
-      )} - RandomRadial generated on ${today} on dsalib.com`,
+      name: seed,
+      description: `${seed} - RandomRadial generated on dsalib.com`,
       image: new File(
         [generateSvg(randomPreset(`${seed}`), false)],
-        `randomradial${seed}.svg`,
+        `${seed}.svg`,
         { type: "image/svg+xml" }
       ),
     };

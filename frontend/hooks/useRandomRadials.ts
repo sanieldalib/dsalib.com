@@ -7,7 +7,7 @@ import useContract from "./useContract";
 
 // 
 const contractForChain  = {
-  3: '0x1d3d3046A8eB92f7909bbcceBB2eD1D61b74088B'
+  3: '0x60Aca77d887D62ce50ED06e8E3E656559Ca48Ab8'
 }
 
 export default function useRandomRadials() {

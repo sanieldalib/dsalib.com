@@ -90,9 +90,7 @@ export const dateToString = (date: Date) => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
-export const randomPreset = (userString: string, date: string | Date = new Date()): ArtworkPreset => {
-  const dateSeed = date instanceof Date ? dateToString(date) : date
-  const seed = `${dateSeed}${userString}`;
+export const randomPreset = (seed: string): ArtworkPreset => {
   const rand = seedrandom(crypto.createHash("md5").update(seed).digest("hex"));
   return {
     ringCount: R(RANGES.ringCount.max, RANGES.ringCount.min, rand),
