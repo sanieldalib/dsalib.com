@@ -52,11 +52,10 @@ export default async function handler(
       ),
     }
 
-    console.log(nftMetadata);
-    // const metadata = await nftStorageClient.store(nftMetadata);
+    const metadata = await nftStorageClient.store(nftMetadata);
 
     res.setHeader("Content-Type", "image/svg+xml");
-    res.status(200).json({ status: "success", metadata: nftMetadata });
+    res.status(200).json({ status: "success", metadata: metadata });
   } catch (e) {
     res.status(500).send(e);
   }

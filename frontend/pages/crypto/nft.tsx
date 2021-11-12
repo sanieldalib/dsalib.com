@@ -32,11 +32,18 @@ const NFTMinter = () => {
       const tokenUri = metadata.url;
 
       if (!tokenUri) {
+        alert("An error occurred (Error 1)")
         setIsMinting(false);
         return;
       }
 
-      await randomRadials?.mintRandomRadial(tokenUri);
+      try {
+        await randomRadials?.mintRandomRadial(tokenUri);
+      } catch (e: any) {
+        console.log(e);
+        alert(e.message);
+        setIsMinting(false);
+      }
     } else {
       // handle error on ur
       console.log(data, nftStorageResponse);
