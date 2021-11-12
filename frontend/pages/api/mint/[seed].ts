@@ -26,7 +26,6 @@ export default async function handler(
     token: nftStorageApiKey,
   });
 
-
   if (Array.isArray(seed)) {
     res.status(400).json({ error: "Invalid seed." });
     return;
@@ -41,16 +40,16 @@ export default async function handler(
 
   try {
     const nftMetadata = {
-      name: `RandomRadial ${seed}`,
-      description: `RandomRadial generated on ${today} with seed '${seed.substring(
+      name: `${seed.substring(10)}`,
+      description: `${seed.substring(
         10
-      )}' on dsalib.com`,
+      )} - RandomRadial generated on ${today} on dsalib.com`,
       image: new File(
         [generateSvg(randomPreset(`${seed}`), false)],
         `randomradial${seed}.svg`,
         { type: "image/svg+xml" }
       ),
-    }
+    };
 
     const metadata = await nftStorageClient.store(nftMetadata);
 
