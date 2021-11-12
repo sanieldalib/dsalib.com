@@ -13,7 +13,7 @@ export default async function handler(
 ) {
   const { seed } = req.query;
 
-  const nftStorageApiKey = process.env.NEXT_PUBLIC_NFT_STORAGE_API_KEY;
+  const nftStorageApiKey = process.env.NFT_STORAGE_API_KEY;
 
   if (!nftStorageApiKey) {
     res
@@ -39,28 +39,25 @@ export default async function handler(
     return;
   }
 
-  res.status(200).send(seed);
-  return;
+  try {
+    const nftMetadata = {
+      name: `RandomRadial ${seed}`,
+      description: `RandomRadial generated on ${today} with seed '${seed.substring(
+        10
+      )}' on dsalib.com`,
+      image: new File(
+        [generateSvg(randomPreset(`${seed}`), false)],
+        `randomradial${seed}.svg`,
+        { type: "image/svg+xml" }
+      ),
+    }
 
-  // try {
-  //   const nftMetadata = {
-  //     name: `RandomRadial ${seed}`,
-  //     description: `RandomRadial generated on ${today} with seed '${seed.substring(
-  //       10
-  //     )}' on dsalib.com`,
-  //     image: new File(
-  //       [generateSvg(randomPreset(`${seed}`), false)],
-  //       `randomradial${seed}.svg`,
-  //       { type: "image/svg+xml" }
-  //     ),
-  //   }
+    console.log(nftMetadata);
+    // const metadata = await nftStorageClient.store(nftMetadata);
 
-  //   console.log(nftMetadata);
-  //   // const metadata = await nftStorageClient.store(nftMetadata);
-
-  //   res.setHeader("Content-Type", "image/svg+xml");
-  //   res.status(200).json({ status: "success", metadata: nftMetadata });
-  // } catch (e) {
-  //   res.send(e);
-  // }
+    res.setHeader("Content-Type", "image/svg+xml");
+    res.status(200).json({ status: "success", metadata: nftMetadata });
+  } catch (e) {
+    res.status(500).send(e);
+  }
 }
