@@ -8,7 +8,6 @@ import { ParsedUrlQuery } from "querystring";
 import { RandomRadialTokenMetadata } from "../../../types/RandomRadials";
 import Page from "../../../components/Page";
 import { randomPreset, generateSvg } from "../../../controllers/artGenerator";
-import DSLink from "../../../components/DSLink";
 import { formatEtherscanLink } from "../../../util";
 
 interface IParams extends ParsedUrlQuery {
