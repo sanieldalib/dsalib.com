@@ -75,24 +75,18 @@ const RANGES = {
   },
 };
 
-/**
- * @function R
- * @description returns a random number between max and min
- * @param {Number} max
- * @param {Number} [min]
- * @param {Boolean} [f]
- */
 const R = (max: number, min: number, rand: any, f = true): number => {
   return f ? Math.floor(rand() * (max - min) + min) : rand() * max;
 };
 
+// prints UTC date for consistency
 export const dateToString = (date: Date) => {
-  const yyyy = `${date.getFullYear()}`;
+  const yyyy = `${date.getUTCFullYear()}`;
   const mm =
-    date.getMonth() < 10
-      ? `0${date.getMonth() + 1}`
-      : `${date.getMonth() + 1}`;
-  const dd = date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`;
+    date.getUTCMonth() < 10
+      ? `0${date.getUTCMonth() + 1}`
+      : `${date.getUTCMonth() + 1}`;
+  const dd = date.getUTCDate() < 10 ? `0${date.getUTCDate()}` : `${date.getUTCDate()}`;
   return `${yyyy}-${mm}-${dd}`;
 };
 
