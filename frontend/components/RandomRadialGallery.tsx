@@ -4,34 +4,33 @@ import { getUsersRandomRadials } from "../hooks/getRandomRadials";
 import Loader from "./Loader";
 import { RandomRadialTokenUrl } from "../types/RandomRadials";
 import { scrollToTop } from "../utils";
+import Link from "next/link";
 
-type RandomRadialProps = {
-  metadata: RandomRadialTokenUrl;
-};
-
-const RandomRadialImage = (props: RandomRadialProps) => {
-  const { data, isError, isLoading } = useIPFS(props.metadata.tokenURI);
+const RandomRadialImage = (props: RandomRadialTokenUrl) => {
+  const { data, isError, isLoading } = useIPFS(props.tokenURI);
 
   if (isError) {
     return <div>error</div>;
   }
 
   return (
-    <div className="border-4 border-green-500 hover:shadow-md cursor-pointer transform duration-150 hover:scale-102">
-      {data ? (
-        <img
-          className="border-b-4 border-green-500"
-          src={generateSvg(randomPreset(data.name))}
-        />
-      ) : (
-        <Loader />
-      )}
-      <div className="p-4">
-        <h1 className="text-lg handwriting text-green-800 dark:text-green-500">
-          #{props.metadata.tokenId.toNumber()} • {data?.name}
-        </h1>
+    <Link href={`/crypto/randomradials/${props.tokenId}`}>
+      <div className="border-4 border-green-500 hover:shadow-md cursor-pointer transform duration-150 hover:scale-102">
+        {data ? (
+          <img
+            className="border-b-4 border-green-500"
+            src={generateSvg(randomPreset(data.name))}
+          />
+        ) : (
+          <Loader />
+        )}
+        <div className="p-4">
+          <h1 className="text-lg handwriting text-green-800 dark:text-green-500">
+            #{props.tokenId.toNumber()} • {data?.name}
+          </h1>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -47,7 +46,7 @@ const RandomRadialGallery = () => {
         {data ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {data.length > 0 ? (
-              data.map((metadata) => <RandomRadialImage metadata={metadata} />)
+              data.map((metadata) => <RandomRadialImage {...metadata} />)
             ) : (
               <div
                 className="text-center text-2xl mt-8 text-gray-700 dark:text-gray-300 transform duration-150 hover:scale-105 cursor-pointer"
