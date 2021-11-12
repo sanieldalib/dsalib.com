@@ -11,6 +11,7 @@
     "postinstall": "yarn compile-contract-types"
   },
   "dependencies": {
+    "ethers": "^5.5.1",
     "@ethersproject/bignumber": "^5.5.0",
     "@ethersproject/contracts": "^5.5.0",
     "@ethersproject/providers": "^5.5.0",
@@ -37,7 +38,6 @@
     "autoprefixer": "^10.3.7",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
-    "ethers": "^5.5.1",
     "postcss": "^8.3.9",
     "tailwindcss": "^2.2.16",
     "typechain": "^5.2.0",
