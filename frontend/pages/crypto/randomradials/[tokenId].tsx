@@ -80,7 +80,6 @@ export const getStaticProps = async (context: any) => {
       tokenId: tokenId,
       owner,
     },
-    revalidate: 60,
   };
 };
 
