@@ -86,7 +86,8 @@ export const dateToString = (date: Date) => {
     date.getUTCMonth() < 10
       ? `0${date.getUTCMonth() + 1}`
       : `${date.getUTCMonth() + 1}`;
-  const dd = date.getUTCDate() < 10 ? `0${date.getUTCDate()}` : `${date.getUTCDate()}`;
+  const dd =
+    date.getUTCDate() < 10 ? `0${date.getUTCDate()}` : `${date.getUTCDate()}`;
   return `${yyyy}-${mm}-${dd}`;
 };
 
@@ -108,7 +109,7 @@ export const randomPreset = (seed: string): ArtworkPreset => {
     hueBg: R(RANGES.hueBg.max, RANGES.hueBg.min, rand),
     satBg: R(RANGES.satBg.max, RANGES.satBg.min, rand),
     lightBg: R(RANGES.lightBg.max, RANGES.lightBg.min, rand),
-    seed
+    seed,
   };
 };
 
@@ -120,7 +121,10 @@ const coords = (number: number, arr: number[] = []) => {
   return arr;
 };
 
-export const generateSvg = (preset: ArtworkPreset, dataString: boolean = true) => {
+export const generateSvg = (
+  preset: ArtworkPreset,
+  dataString: boolean = true
+) => {
   const {
     ringCount,
     dotSize,
@@ -150,8 +154,10 @@ export const generateSvg = (preset: ArtworkPreset, dataString: boolean = true) =
       lightMin,
       rand
     )}%)`;
-  let s = `${dataString ? 'data:image/svg+xml;utf8,' : ''}<svg data-app-elm="svg" id="svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" style="background-color: hsl(${hueBg}, ${satBg}%, ${lightBg}%)">
-  <g id="g"></g><circle cx="${cx}" cy="${cy}" r="${dotSize}" fill="${fill()}" />`;
+  let s = `${
+    dataString ? "data:image/svg+xml;utf8," : ""
+  }<svg data-app-elm="svg" id="svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000">
+  <rect x="0" y="0" width="100%" height="100%" fill="hsl(${hueBg}, ${satBg}%, ${lightBg}%)" /><g id="g"></g><circle cx="${cx}" cy="${cy}" r="${dotSize}" fill="${fill()}" />`;
 
   for (let i = 1; i <= ringCount; i++) {
     const r = randomRadius ? R(500, 1, rand) : spread * i;
