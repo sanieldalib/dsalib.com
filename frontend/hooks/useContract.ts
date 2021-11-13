@@ -17,7 +17,6 @@ export default function useContract<T extends Contract = Contract>(
 
     try {
       const address = addresses[chainId];
-      console.log(address);
       if (!!address) {
         return new Contract(address, ABI, library.getSigner(account));
       }

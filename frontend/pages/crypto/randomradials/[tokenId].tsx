@@ -9,6 +9,7 @@ import { RandomRadialTokenMetadata } from "../../../types/RandomRadials";
 import Page from "../../../components/Page";
 import { randomPreset, generateSvg } from "../../../controllers/artGenerator";
 import { formatEtherscanLink } from "../../../util";
+import { getRandomRadialsOwner } from "../../../hooks/getRandomRadials";
 
 interface IParams extends ParsedUrlQuery {
   tokenId: string;
@@ -84,6 +85,7 @@ export const getStaticProps = async (context: any) => {
 };
 
 const RandomRadialPage = (props: RandomRadialStaticProps) => {
+  const { data } = getRandomRadialsOwner(props.tokenId);
   return (
     <Page
       title={`#${props.tokenId} • ${props.name} | RandomRadials | dsalib.com`}
@@ -124,15 +126,27 @@ const RandomRadialPage = (props: RandomRadialStaticProps) => {
               <div className="bg-green-50 hover:bg-green-100  text-green-900 dark:bg-gray-700 dark:text-green-500 dark:hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
                 Owner
               </div>
-              <a
-                href={formatEtherscanLink("Account", [3, props.owner])}
-                target="_blank"
-                className="overflow-scroll"
-              >
-                <h2 className="text-md w-auto text-green-900 dark:text-green-300 hover:opacity-80 ">
-                  {props.owner}
-                </h2>
-              </a>
+              {!!data ? (
+                <a
+                  href={formatEtherscanLink("Account", [3, data])}
+                  target="_blank"
+                  className="overflow-scroll"
+                >
+                  <h2 className="text-md w-auto text-green-900 dark:text-green-300 hover:opacity-80 ">
+                    {data}
+                  </h2>
+                </a>
+              ) : (
+                <a
+                  href={formatEtherscanLink("Account", [3, props.owner])}
+                  target="_blank"
+                  className="overflow-scroll"
+                >
+                  <h2 className="text-md w-auto text-green-900 dark:text-green-300 hover:opacity-80 ">
+                    {props.owner}
+                  </h2>
+                </a>
+              )}
             </div>
             <div className="flex flex-row items-baseline overflow-hidden">
               <div className="bg-green-50 hover:bg-green-100  text-green-900 dark:bg-gray-700 dark:text-green-500 dark:hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">

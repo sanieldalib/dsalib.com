@@ -50,6 +50,30 @@ export function getUsersRandomRadials(suspense = false) {
   };
 }
 
+function getOwnerforTokenId(contract: RandomRadials) {
+  return async (_: string, tokenId: string): Promise<string> => {
+    const owner = await contract.ownerOf(tokenId);
+    return owner;
+  };
+}
+
+export function getRandomRadialsOwner(tokenId: string) {
+  const contract = useRandomRadials();
+
+  const shouldFetch = !!contract;
+
+  const { data, error } = useSWR(
+    shouldFetch ? ["RandomRadialsHoldings", tokenId] : null,
+    getOwnerforTokenId(contract!)
+  );
+
+  return {
+    data: data,
+    isLoading: !error && !data && shouldFetch,
+    isError: error,
+  };
+}
+
 function getUsage(contract: RandomRadials) {
   return async (): Promise<RandomRadialUsage> => {
     const minted = (await contract.totalSupply()).toNumber();

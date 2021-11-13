@@ -9,9 +9,11 @@ import { formatEtherscanLink } from "../../util";
 import { useWeb3React } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
 import { getRandomRadialsUsage } from "../../hooks/getRandomRadials";
+import TxDialog, { TxDialogProps } from "../../components/TxDialog";
 
 const RandomRadialMinter = () => {
   const [seed, setSeed] = useState("");
+  const [tx, setTx] = useState<TxDialogProps>();
   const [isMinting, setIsMinting] = useState(false);
   const randomRadials = useRandomRadials();
   const contractUsage = getRandomRadialsUsage();
@@ -19,6 +21,10 @@ const RandomRadialMinter = () => {
 
   const mintRandomRadial = async () => {
     setIsMinting(true);
+    if (!randomRadials || !chainId) {
+      setIsMinting(false);
+      return;
+    }
     const nftStorageResponse = await fetch(`/api/mint/${seed}`);
     const data = await nftStorageResponse.json();
     if (nftStorageResponse.ok && data && data.metadata) {
@@ -32,15 +38,15 @@ const RandomRadialMinter = () => {
       }
 
       try {
-        await randomRadials?.mintRandomRadial(tokenUri);
+        const tx = await randomRadials.mintRandomRadial(tokenUri);
+        console.log(tx);
+        setTx({ chainId: chainId, hash: tx.hash });
       } catch (e: any) {
         console.log(e);
         alert(e.message);
         setIsMinting(false);
       }
     } else {
-      // handle error on ur
-      console.log(data, nftStorageResponse);
       setIsMinting(false);
       return;
     }
@@ -50,6 +56,7 @@ const RandomRadialMinter = () => {
 
   return (
     <CryptoPage title={"RandomRadials Minter | dsalib.com"} eagerConnect>
+      {!!tx && <TxDialog {...tx} />}
       <div className="w-full">
         <div className="flex flex-col md:flex-row lg:w-5/6 px-6 py-2 items-center mx-auto md:mt-4 lg:my-8">
           <div className="w-full md:w-3/5 order-first md:order-last">
