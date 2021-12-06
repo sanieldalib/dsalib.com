@@ -53,6 +53,7 @@ export const getStaticProps = async (context: any) => {
   ) as RandomRadials;
 
   const { tokenId } = context.params as IParams;
+  console.log(tokenId);
   const tokenIdNumber = new Number(tokenId);
   const minted = (await randomRadials.totalSupply()).toNumber() > tokenIdNumber;
 
@@ -68,7 +69,7 @@ export const getStaticProps = async (context: any) => {
   const owner = await randomRadials.ownerOf(tokenId);
 
   const [hash, path] = tokenUri.substring(7).split("/");
-  const gatewayLink = `https://cloudflare-ipfs.com/ipfs/${hash}/${path}`;
+  const gatewayLink = `https://ipfs.io/ipfs/${hash}/${path}`;
   const metadataRes = await fetch(gatewayLink);
   const metadata: RandomRadialTokenMetadata = await metadataRes.json();
 
