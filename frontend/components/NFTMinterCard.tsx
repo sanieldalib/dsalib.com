@@ -17,7 +17,7 @@ const NFTMinterCard = () => {
             Mint generative NFTs seeded on a string of text.
           </h2>
           <h2 className="text-md mt-2 dark:text-gray-400">
-            My first forray into Web3.
+            My first foray into Web3.
           </h2>
         </div>
       </div>

@@ -17,15 +17,29 @@ const Experience: NextPage = () => {
                 <ExperienceItem
                   title={[
                     <DSLink href="https://atlassian.com">Atlassian</DSLink>,
-                    ", Software Engineer (Mobile Tools)",
+                    ", Software Engineer",
                   ]}
                   image="atlassian.png"
                   date="July 2020 - Present"
-                  location="Mountain View, CA"
+                  location="Mountain View, CA (Remote)"
                   items={[
                     "Software Engineer on the Mobile Tools Team",
                     [
+                      "Developing Ephemeral macOS CI builders with ",
+                      <DSLink href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html">
+                        macOS EC2s
+                      </DSLink>,
+                      " + ",
+                      <DSLink href="https://veertu.com">Veertu Anka</DSLink>,
+                    ],
+                    [
                       <span className="font-bold">Tech: </span>,
+                      <DSLink href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html">
+                        macOS EC2s
+                      </DSLink>,
+                      ", ",
+                      <DSLink href="https://veertu.com/">Veertu Anka</DSLink>,
+                      ", ",
                       <DSLink href="https://www.terraform.io/">
                         Terraform
                       </DSLink>,
@@ -33,8 +47,6 @@ const Experience: NextPage = () => {
                       <DSLink href="https://www.packer.io/">Packer</DSLink>,
                       ", ",
                       <DSLink href="https://www.ansible.com/">Ansible</DSLink>,
-                      ", ",
-                      <DSLink href="https://veertu.com/">Veertu Anka</DSLink>,
                       ", Docker, Python",
                     ],
                   ]}

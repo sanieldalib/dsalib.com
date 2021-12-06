@@ -6,6 +6,7 @@ type PageProps = {
   title?: string;
   description?: string;
   image?: string;
+  url?: string;
 };
 
 const Page: React.FC<PageProps> = (props) => {

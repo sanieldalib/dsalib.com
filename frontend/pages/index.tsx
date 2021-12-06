@@ -74,10 +74,9 @@ const Home: NextPage = () => {
               </h1>
               <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                 <NewsItem
-                  title="⚡ Crypto Integration"
-                  href="/crypto"
-                  subtitle={`Integration with <span className="bg-green-50 hover:bg-green-100">
-                <span><img class='w-6 h-6 inline-block' src='/metamask.svg'></span> MetaMask has been added - Web3 dApp coming soon.`}
+                  title="⚡ Mint a RandomRadial NFT"
+                  href="/crypto/randomradials"
+                  subtitle={`Mint your very own NFT! RandomRadials are NFTs composed of randomly generated images seeded on a provided string.`}
                   linkText="Visit"
                   date="November 4, 2021"
                 />
