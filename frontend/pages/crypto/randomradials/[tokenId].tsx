@@ -53,7 +53,6 @@ export const getStaticProps = async (context: any) => {
   ) as RandomRadials;
 
   const { tokenId } = context.params as IParams;
-  console.log(tokenId);
   const tokenIdNumber = new Number(tokenId);
   const minted = (await randomRadials.totalSupply()).toNumber() > tokenIdNumber;
 
