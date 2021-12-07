@@ -32,6 +32,7 @@ const Experience: NextPage = () => {
                       " + ",
                       <DSLink href="https://veertu.com">Veertu Anka</DSLink>,
                     ],
+                    "Maintain Android, iOS, and macOS CI/CD infrastructure for Atlassian SWEs",
                     [
                       <span className="font-bold">Tech: </span>,
                       <DSLink href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html">
