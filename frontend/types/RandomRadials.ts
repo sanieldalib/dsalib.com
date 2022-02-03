@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
 
 export type RandomRadialTokenUrl = {
-  tokenId: BigNumber;
+  tokenId: number;
   tokenURI: string;
 };
 
@@ -14,4 +14,12 @@ export type RandomRadialTokenMetadata = {
   name: string;
   description: string;
   image: string;
+};
+
+export type RandomRadialTokenData = {
+  name: string;
+  description: string;
+  image: string;
+  tokenId: string;
+  owner: string;
 };

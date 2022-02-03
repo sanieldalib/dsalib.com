@@ -14,8 +14,9 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Experience", href: "/experience" },
   { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "mailto:danielsalib98@gmail.com", external: true },
   { name: "Crypto", href: "/crypto" },
+  { name: "Contact", href: "mailto:danielsalib98@gmail.com", external: true },
+  { name: "Resume", href: "/daniel-salib-resume.pdf", external: true },
 ];
 
 const classNames = (...classes: string[]) => {

@@ -62,7 +62,7 @@ const RandomRadialMinter = () => {
           <div className="w-full md:w-3/5 order-first md:order-last">
             <div className="">
               <img
-                className="mx-auto max-h-3/4 md:ml-auto md:mr-0 border-4 border-green-500 shadow-md lg:max-h-3/4"
+                className="mx-auto md:ml-auto md:mr-0 border-4 border-green-500 shadow-md md:w-3/4 2xl:w-1/2"
                 src={generateSvg(randomPreset(seed))}
               />
             </div>
@@ -130,39 +130,36 @@ const RandomRadialMinter = () => {
                   Connect Your Wallet to Mint
                 </div>
               )}
-
-              {!!randomRadials && !!chainId && (
-                <div>
-                  <hr className="mt-3 border-gray-400 opacity-70" />
-
-                  <div className="mt-3 space-x-1 flex flex-row justify-between items-center">
-                    {!!contractUsage.data && (
-                      <a
-                        href={formatEtherscanLink("Token", [
-                          chainId,
-                          randomRadials.address,
-                        ])}
-                        target="_blank"
-                      >
-                        <div className="text-md font-semibold dark:text-gray-900 font bg-green-100 px-1 py-0.5 rounded-md bg-opacity-90">
-                          {contractUsage.data.minted} /{" "}
-                          {contractUsage.data.total}
-                        </div>
-                      </a>
-                    )}
-                    <div className="space-x-1 flex flex-row justify-end items-center">
-                      <a
-                        href="https://github.com/sanieldalib/dsalib.com/blob/main/eth/contracts/RandomRadials.sol"
-                        target="_blank"
-                      >
-                        <div className="bg-gray-100 hover:bg-gray-200 text-green-800 hover:text-green-900 dark:text-gray-500 dark:bg-gray-800 dark:hover:bg-gray-800 dark:hover:text-green-700 px-1 py-1 rounded-md text-md font-medium cursor-pointer">
-                          <FaGithub />
-                        </div>
-                      </a>
+              <div>
+                <hr className="mt-3 border-gray-400 opacity-70" />
+                <div className="mt-3 space-x-1 flex flex-row justify-between items-center">
+                  {!!contractUsage.data && (
+                    <a
+                      href={formatEtherscanLink("Token", [
+                        3,
+                        "0x60Aca77d887D62ce50ED06e8E3E656559Ca48Ab8",
+                      ])}
+                      target="_blank"
+                    >
+                      <div className="text-md font-semibold dark:text-gray-900 font bg-green-100 px-1 py-0.5 rounded-md bg-opacity-90">
+                        {contractUsage.data.minted} / {contractUsage.data.total}
+                      </div>
+                    </a>
+                  )}
+                  <div className="space-x-1 flex flex-row justify-end items-center">
+                    <a
+                      href="https://github.com/sanieldalib/dsalib.com/blob/main/eth/contracts/RandomRadials.sol"
+                      target="_blank"
+                    >
+                      <div className="bg-gray-100 hover:bg-gray-200 text-green-800 hover:text-green-900 dark:text-gray-500 dark:bg-gray-800 dark:hover:bg-gray-800 dark:hover:text-green-700 px-1 py-1 rounded-md text-md font-medium cursor-pointer">
+                        <FaGithub />
+                      </div>
+                    </a>
+                    {
                       <a
                         href={formatEtherscanLink("Account", [
-                          chainId,
-                          randomRadials.address,
+                          3,
+                          "0x60Aca77d887D62ce50ED06e8E3E656559Ca48Ab8",
                         ])}
                         target="_blank"
                       >
@@ -170,17 +167,21 @@ const RandomRadialMinter = () => {
                           <FaEthereum />
                         </div>
                       </a>
-                    </div>
+                    }
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className="w-full mt-4">
         <div className="flex flex-col md:flex-row lg:w-5/6 px-6 py-2 items-center mx-auto">
-          <RandomRadialGallery />
+          {!!active && !!randomRadials ? (
+            <RandomRadialGallery owned />
+          ) : (
+            <RandomRadialGallery />
+          )}
         </div>
       </div>
     </CryptoPage>
