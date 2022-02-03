@@ -72,7 +72,14 @@ const Home: NextPage = () => {
               <h1 className="handwriting text-2xl mb-4 dark:text-gray-300">
                 Latest Changes
               </h1>
-              <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <NewsItem
+                  title="🤓 Projects Updated"
+                  href="/projects"
+                  subtitle="Projects have been updated!"
+                  linkText="Visit"
+                  date="February 3, 2022"
+                />
                 <NewsItem
                   title="⚡ Mint a RandomRadial NFT"
                   href="/crypto/randomradials"

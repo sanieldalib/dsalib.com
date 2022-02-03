@@ -57,7 +57,7 @@ const Projects: NextPage = () => {
       <Page title={"Projects | Daniel Salib"}>
         <div className="flex justify-center">
           <div className="flex flex-col px-4 py-4 lg:w-4/5 xl:w-3/5">
-            <h1 className="text-5xl font-semibold text-center handwriting text-green-800 dark:text-green-500">
+            <h1 className="text-4xl font-semibold text-center handwriting text-green-800 dark:text-green-500">
               Projects
             </h1>
             <div className="mt-5">
