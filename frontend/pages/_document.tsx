@@ -6,6 +6,7 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from "next/document";
+import SharedScripts from "../components/SharedScripts";
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -20,6 +21,7 @@ class MyDocument extends Document {
       <Html>
         <Head />
         <body className="bg-white dark:bg-shadow-black">
+          <SharedScripts />
           <Main />
           <NextScript />
         </body>
