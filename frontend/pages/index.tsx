@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         {/* Hello - Intro Section */}
         <div className="w-full p-4 bg-gray-200 dark:bg-gray-800">
           <div className="rounded-lg flex flex-col lg:flex-row lg:w-4/5 xl:w-3/5 items-center lg:space-x-10 mx-auto py-4 lg:py-16">
-            <div className="flex-shrink-0 pt-2 mb-2">
+            <div className="flex-shrink-0 pt-2 mb-2 overflow-hidden">
               <Image
                 width={144}
                 height={144}
