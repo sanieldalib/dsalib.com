@@ -1,30 +1,54 @@
 import Link from "next/link";
+import DSLink from "./DSLink";
 
 type ProjectItemProps = {
-  title: string;
-  href: string;
-  subtitle: string;
-  linkText: string;
+  name: string;
+  img: string;
   date: string;
+  blurb?: any[] | string;
+  linkText: any[] | string;
+  href: string;
+  tech?: any[] | string;
 };
 
-type ProjectItem = React.FC<ProjectItemProps>;
-
-const ProjectItem: ProjectItem = (props) => {
+const ProjectItem = (props: ProjectItemProps) => {
   return (
-    <Link href={props.href}>
-      <div className="group border-2 border-green-200 rounded-xl text-left py-4 px-4 hover:shadow-md dark:border-green-500 dark:bg-gray-800 hover:scale-102 duration-150 transform cursor-pointer">
-        <h3 className="font-medium text-lg dark:text-gray-300">{props.title}</h3>
-        <p className="font-light text-md mt-1 dark:text-gray-400">{props.subtitle}</p>
-        <p className="font-light text-sm mt-1 text-gray-600 dark:text-gray-500">{props.date}</p>
-        <div className='mt-4'>
-        <span className="font-bold bg-green-50 group-hover:bg-green-100  dark:bg-gray-700 dark:text-green-500 dark:group-hover:text-green-800 rounded-md px-1 py-px flex-grow-0">
-          {props.linkText} →
-        </span>
+    <div className="mb-8" key={props.name}>
+      <div className="flex flex-col md:flex-row border-4 border-green-600 rounded-xl text-left py-4 px-4 hover:shadow-md dark:border-green-600 dark:bg-gray-800 bg-gray-100 items-center">
+        <div className="w-full md:w-5/12">
+          <img
+            className="border-4 dark:border-green-500 border-green-600 rounded-md"
+            src={props.img}
+          />
+        </div>
+        <div className="mt-4 md:mt-0 md:ml-6 md:w-1/2">
+          <Link href={props.href}>
+            <h1 className="text-3xl font-semibold handwriting text-green-600 hover:text-green-700 mb-2 cursor-pointer">
+              {props.name}
+            </h1>
+          </Link>
+          <div className="text-lg text-gray-600 dark:text-gray-400 mb-2">
+            {props.date}
+          </div>
+          <div className="text-xl dark:text-gray-100 text-gray-800 mb-2">
+            {props.blurb}
+          </div>
+          {props.tech && (
+            <div className="text-lg text-gray-600 dark:text-gray-400">
+              Tech: {props.tech}
+            </div>
+          )}
+          <div className="mt-4 pb-2">
+            <DSLink
+              href={props.href}
+              className="font-bold bg-green-100 hover:bg-green-200  dark:bg-gray-700 text-green-700 hover:text-green-900 dark:text-green-500 dark:hover:text-green-800 rounded-md px-2 py-2 flex-grow-0 cursor-pointer"
+            >
+              <>{props.linkText} →</>
+            </DSLink>
+          </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
-
 export default ProjectItem;

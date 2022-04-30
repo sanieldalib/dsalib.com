@@ -12,9 +12,8 @@ type NavbarProps = {
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Experience", href: "/experience" },
+  { name: "Freelance", href: "/freelance" },
   { name: "Projects", href: "/projects" },
-  { name: "Crypto", href: "/crypto" },
   { name: "Contact", href: "mailto:danielsalib98@gmail.com", external: true },
   { name: "Resume", href: "/daniel-salib-resume.pdf", external: true },
 ];
@@ -42,7 +41,7 @@ const Navbar = ({ crypto }: NavbarProps) => {
           <div className="w-full flex justify-between items-center">
             <div className="flex flex-grow items-center divide-x divide-gray-500">
               {/* Logo */}
-              <div className="text-4xl text-green-800 dark:text-green-600 dark:hover:text-green-500 hover:text-green-900 font-semibold pl-4 pr-4 handwriting">
+              <div className="text-4xl text-green-500 dark:text-green-600 dark:hover:text-green-500 hover:text-green-600 font-semibold pl-4 pr-4 handwriting">
                 <Link href="/">DS</Link>
               </div>
               {/* Items */}
@@ -50,13 +49,13 @@ const Navbar = ({ crypto }: NavbarProps) => {
                 <div className="space-x-2 flex flex-row pl-4">
                   {navigation.map((item) =>
                     item.external ? (
-                      <a href={item.href} key={item.name}>
+                      <a href={item.href} key={item.name} target="_blank">
                         <div
                           className={classNames(
                             item.href === router.pathname
-                              ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
-                              : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
-                            "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
+                              ? "bg-green-50 dark:bg-gray-800 text-green-900 dark:text-green-600"
+                              : "text-gray-700 dark:text-gray-400 hover:bg-green-50 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
+                            "px-2 py-1 rounded-md text-md font-medium cursor-pointer"
                           )}
                         >
                           {item.name}
@@ -67,9 +66,9 @@ const Navbar = ({ crypto }: NavbarProps) => {
                         <div
                           className={classNames(
                             item.href === router.pathname
-                              ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
-                              : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
-                            "px-2 py-1 rounded-md text-sm font-medium cursor-pointer"
+                              ? "bg-green-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
+                              : "text-gray-700 dark:text-gray-400 hover:bg-green-50 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
+                            "px-2 py-1 rounded-md text-md font-medium cursor-pointer"
                           )}
                         >
                           {item.name}
@@ -94,7 +93,7 @@ const Navbar = ({ crypto }: NavbarProps) => {
                 )}
               </div>
               <div className="md:hidden">
-                <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-green-900 focus:outline-none">
+                <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-green-500 dark:text-green-900 focus:outline-none">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-8 w-8" aria-hidden="true" />
@@ -113,8 +112,8 @@ const Navbar = ({ crypto }: NavbarProps) => {
                   href={item.href}
                   className={classNames(
                     item.href === router.pathname
-                      ? "bg-gray-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
-                      : "text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
+                      ? "bg-green-100 dark:bg-gray-800 text-green-900 dark:text-green-600"
+                      : "text-gray-700 dark:text-gray-400 hover:bg-green-50 dark:hover:bg-gray-800 hover:text-green-900 dark:hover:text-green-600",
                     "px-2 py-1 rounded-md text-md font-medium cursor-pointer"
                   )}
                 >

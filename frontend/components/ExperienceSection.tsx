@@ -1,8 +1,10 @@
 import DSLink from "./DSLink";
+import Image, { StaticImageData } from "next/image";
+import LineBreak from "./LineBreak";
 
 type ExperienceItemProps = {
   title: any[];
-  image: string;
+  image: StaticImageData;
   date: string;
   location: string;
   items?: any[];
@@ -14,7 +16,7 @@ export const ExperienceItem: ExperienceItemComponent = (props) => {
   return (
     <div className="flex mb-6">
       <div className="flex-shrink-0 pt-2">
-        <img className="w-12" src={props.image} />
+        <Image width={48} height={48} src={props.image} />
       </div>
       <div className="pl-4 dark:text-green-500">
         <h2 className="text-xl font-semibold">{props.title}</h2>
@@ -47,10 +49,10 @@ type ExperienceSectionComponent = React.FC<ExperienceSectionProps>;
 export const ExperienceSection: ExperienceSectionComponent = (props) => {
   return (
     <div>
-      <h1 className="text-3xl font-semibold mb-1 handwriting dark:text-green-600">
+      <h1 className="text-3xl font-semibold mb-1 handwriting text-green-600">
         {props.title}
       </h1>
-      <hr className="font-bold border-t-4 border-green-900 mb-4 dark:border-green-900"></hr>
+      <LineBreak />
       {props.children}
     </div>
   );

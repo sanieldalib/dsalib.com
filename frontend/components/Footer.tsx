@@ -10,9 +10,9 @@ const Footer = () => {
         >
           Back to top
         </button>
-        <p className="text-gray-400">
+        <p className="dark:text-gray-400">
           <DSLink href="mailto:danielsalib98@gmail.com">Daniel Salib</DSLink> ©
-          2021
+          {` ${new Date().getFullYear()}`}
         </p>
       </div>
     </div>
