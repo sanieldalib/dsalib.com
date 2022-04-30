@@ -14,10 +14,28 @@ const Projects: NextPage = () => {
               Projects
             </h1>
             <LineBreak />
-            <div className="">
+            <div>
+              <ProjectItem
+                name="Spirit and Truth"
+                img="snt.png"
+                date="March 2022 - Present"
+                blurb={[
+                  "An iOS and Android educational app for Coptic Orthodox Church with nearly ",
+                  <span className=" font-semibold">10,000 downloads</span>,
+                  ". Includes liturgical, biblical, and patristic texts in 3 languages as well as a number of study tools.",
+                  <br />,
+                  <br />,
+                  " A backend and frontend for managing and distributing content allows for over-the-air content updates.",
+                ]}
+                tech={["Flutter, FastAPI (Python), Svelte, Kubernetes"]}
+                linkText="App Store"
+                href="https://apps.apple.com/us/app/in-spirit-and-truth/id1498587179"
+                linkText2="Google Play"
+                href2="https://play.google.com/store/apps/details?gl=US&hl=en_US&id=org.lacopts.spiritAndTruth"
+              />
               <ProjectItem
                 name="RandomRadials NFT Minter"
-                img="nft.jpg"
+                img="nft.png"
                 date="November 2021"
                 blurb="Generate radial art from any piece of text and mint your favorites into NFTs. My first experience with web3. Deployed to the Ethereum Ropsten testnet."
                 tech={[
