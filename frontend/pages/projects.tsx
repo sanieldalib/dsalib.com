@@ -20,7 +20,7 @@ const Projects: NextPage = () => {
                 img="snt.png"
                 date="March 2022 - Present"
                 blurb={[
-                  "An iOS and Android educational app for Coptic Orthodox Church with nearly ",
+                  "An iOS and Android educational app for the Coptic Orthodox Church with nearly ",
                   <span className=" font-semibold">10,000 downloads</span>,
                   ". Includes liturgical, biblical, and patristic texts in 3 languages as well as a number of study tools.",
                   <br />,
