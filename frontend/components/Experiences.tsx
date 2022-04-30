@@ -14,13 +14,13 @@ export const WorkExperience = () => {
       <ExperienceItem
         title={[
           <DSLink href="https://atlassian.com">Atlassian</DSLink>,
-          ", Software Engineer",
+          ", Software Engineer II",
         ]}
         image={AtlassianImage}
         date="July 2020 - Present"
         location="Mountain View, CA (Remote)"
         items={[
-          "Software Engineer on the Mobile Tools Team",
+          "Software Engineer II on the Developer Productivity Services Team",
           [
             "Developing Ephemeral macOS CI builders with ",
             <DSLink href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html">
@@ -29,7 +29,9 @@ export const WorkExperience = () => {
             " + ",
             <DSLink href="https://veertu.com">Veertu Anka</DSLink>,
           ],
+          "Tooling for building, testing, signing, and distributing Mobile Apps",
           "Maintain Android, iOS, and macOS CI/CD infrastructure for Atlassian SWEs",
+          "Promoted to Software Engineer II during March 2022",
           [
             <span className="font-bold">Tech: </span>,
             <DSLink href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html">

@@ -9,6 +9,13 @@ import { DefaultButton } from "../components/Buttons";
 import danielImage from "../public/dsalib.png";
 import { Education, WorkExperience } from "../components/Experiences";
 
+const scrollToWork = () => {
+  const section = document.getElementById("#experience");
+  const yOffset = -50;
+  const y = section!.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+};
+
 const Home: NextPage = () => {
   return (
     <div>
@@ -42,19 +49,13 @@ const Home: NextPage = () => {
                 cycling, snowboarding, learning new things, and visiting new
                 places.
               </p>
-              {/* <p className="text-lg pt-2 text-center lg:text-left dark:text-gray-400 font-semibold">
-                This site serves both as a portfolio and a creative space. As a
-                result, it is an ongoing work and will be updated frequently.
-                Check back often for new things!
-              </p> */}
               <div className="block mt-2">
-                <Link href="/experience">
-                  <div
-                    className={`inline-block py-2 px-4 mr-2 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
-                  >
-                    Experience
-                  </div>
-                </Link>
+                <div
+                  onClick={scrollToWork}
+                  className={`inline-block py-2 px-4 mr-2 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
+                >
+                  Experience
+                </div>
                 <Link href="/projects">
                   <div
                     className={`inline-block py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
@@ -70,7 +71,10 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="w-full p-4 mt-2 bg-white dark:bg-shadow-black">
+        <div
+          id="#experience"
+          className="w-full p-4 mt-2 bg-white dark:bg-shadow-black"
+        >
           <div className="flex justify-center">
             <div className="lg:w-4/5 xl:w-3/5 justify-center">
               <WorkExperience />
