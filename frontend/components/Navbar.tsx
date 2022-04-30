@@ -41,7 +41,7 @@ const Navbar = ({ crypto }: NavbarProps) => {
           <div className="w-full flex justify-between items-center">
             <div className="flex flex-grow items-center divide-x divide-gray-500">
               {/* Logo */}
-              <div className="text-4xl text-green-500 dark:text-green-600 dark:hover:text-green-500 hover:text-green-600 font-semibold pl-4 pr-4 handwriting">
+              <div className="text-4xl text-green-600 dark:hover:text-green-500 hover:text-green-700 font-semibold pl-4 pr-4 handwriting">
                 <Link href="/">DS</Link>
               </div>
               {/* Items */}

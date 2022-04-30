@@ -45,14 +45,14 @@ const ProjectItem = (props: ProjectItemProps) => {
           <div className="mt-4 pb-2">
             <DSLink
               href={props.href}
-              className="font-bold bg-green-100 hover:bg-green-200  dark:bg-gray-700 text-green-700 hover:text-green-900 dark:text-green-500 dark:hover:text-green-800 rounded-md px-2 py-2 flex-grow-0 cursor-pointer"
+              className="font-bold bg-green-200 hover:bg-green-300  dark:bg-gray-700 text-green-700 hover:text-green-900 dark:text-green-500 dark:hover:text-green-800 rounded-md px-2 py-2 flex-grow-0 cursor-pointer"
             >
               <>{props.linkText} →</>
             </DSLink>
             {props.linkText2 && props.href2 && (
               <DSLink
                 href={props.href2}
-                className="ml-2 font-bold bg-green-100 hover:bg-green-200  dark:bg-gray-700 text-green-700 hover:text-green-900 dark:text-green-500 dark:hover:text-green-800 rounded-md px-2 py-2 flex-grow-0 cursor-pointer"
+                className="ml-2 font-bold bg-green-200 hover:bg-green-300  dark:bg-gray-700 text-green-700 hover:text-green-900 dark:text-green-500 dark:hover:text-green-800 rounded-md px-2 py-2 flex-grow-0 cursor-pointer"
               >
                 <>{props.linkText2} →</>
               </DSLink>

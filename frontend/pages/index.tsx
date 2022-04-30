@@ -49,18 +49,17 @@ const Home: NextPage = () => {
                 cycling, snowboarding, learning new things, and visiting new
                 places.
               </p>
-              <div className="block mt-2">
+              <div className="flex mt-2 md:w-1/2 mx-auto lg:mx-0">
                 <div
                   onClick={scrollToWork}
-                  className={`inline-block py-2 px-4 mr-2 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
+                  className="font-bold bg-green-100 hover:bg-green-300  dark:bg-gray-700 text-green-700 hover:text-green-900 dark:text-green-500 dark:hover:text-green-800 rounded-md px-2 py-2 flex-grow text-center cursor-pointer"
                 >
-                  Experience
+                  Experience →
                 </div>
+
                 <Link href="/projects">
-                  <div
-                    className={`inline-block py-2 px-4 rounded-md dark:bg-green-500 dark:hover:bg-green-400 bg-green-300 hover:bg-green-200 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer`}
-                  >
-                    Projects
+                  <div className="ml-2 font-bold bg-green-100 hover:bg-green-300  dark:bg-gray-700 text-green-700 hover:text-green-900 dark:text-green-500 dark:hover:text-green-800 rounded-md px-2 py-2 flex-grow text-center cursor-pointer">
+                    Projects →
                   </div>
                 </Link>
               </div>
