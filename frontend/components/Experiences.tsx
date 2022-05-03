@@ -12,6 +12,7 @@ export const WorkExperience = () => {
   return (
     <ExperienceSection title="Work">
       <ExperienceItem
+        key={"Atlassian"}
         title={[
           <DSLink href="https://atlassian.com">Atlassian</DSLink>,
           ", Software Engineer II",
@@ -50,6 +51,7 @@ export const WorkExperience = () => {
         ]}
       />
       <ExperienceItem
+        key={"AWS"}
         title={[
           <DSLink href="https://aws.amazon.com">Amazon Web Services</DSLink>,
           ", Software Engineer Intern",
@@ -68,6 +70,7 @@ export const WorkExperience = () => {
         ]}
       />
       <ExperienceItem
+        key={"CBS"}
         title={[
           <DSLink href="https://cbsinteractive.com">CBS Interactive</DSLink>,
           ,
@@ -83,6 +86,7 @@ export const WorkExperience = () => {
         ]}
       />
       <ExperienceItem
+        key={"cis195ta"}
         title={[
           "Teaching Assistant, ",
           <DSLink href="https://www.seas.upenn.edu/~cis195/">CIS 195</DSLink>,
@@ -106,6 +110,7 @@ export const Education = () => {
   return (
     <ExperienceSection title="Education">
       <ExperienceItem
+        key={"upennseas"}
         title={[
           "University of Pennsylvania, ",
           <DSLink href="https://www.seas.upenn.edu/">
@@ -121,6 +126,7 @@ export const Education = () => {
         ]}
       />
       <ExperienceItem
+        key={"upennwharton"}
         title={[
           "University of Pennsylvania, ",
           <DSLink href="https://wharton.upenn.edu">

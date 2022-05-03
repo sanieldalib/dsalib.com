@@ -36,7 +36,7 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div>
-              <h1 className="text-4xl font-semibold text-center lg:text-left handwriting text-green-600 dark:text-green-500">
+              <h1 className="text-5xl font-bold text-center handwriting lg:text-left text-green-600 dark:text-green-500">
                 Hey there, I'm Daniel!
               </h1>
               <p className="text-lg pt-2 text-center lg:text-left dark:text-gray-400">
