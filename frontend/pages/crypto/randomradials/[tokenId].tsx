@@ -29,7 +29,7 @@ const RandomRadialPage = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 lg:mr-4 border-4 border-green-500 shadow-md p-4">
-            <h1 className="text-3xl handwriting text-green-500">
+            <h1 className="text-3xl font-medium text-green-500">
               #{data.tokenId} • {data.name}
             </h1>
             <div className="flex flex-row items-baseline mt-2">

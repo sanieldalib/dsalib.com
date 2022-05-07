@@ -7,7 +7,7 @@ const About: NextPage = () => {
       <Page title={"About | Daniel Salib"}>
         <div className="flex">
           <div className="w-full p-4 py-36 bg-gray-800">
-            <h1 className="text-5xl font-semibold text-center handwriting text-green-500">
+            <h1 className="text-5xl font-semibold text-center text-green-500">
               This page is coming soon.
             </h1>
           </div>

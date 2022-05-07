@@ -68,7 +68,7 @@ const RandomRadialMinter = () => {
             </div>
           </div>
           <div className="w-full md:w-2/5 md:mr-4 border-4 border-green-500 shadow-md p-4">
-            <h1 className="text-3xl handwriting text-green-500">
+            <h1 className="text-3xl font-semibold text-green-500">
               RandomRadials Minter
             </h1>
             <h2 className="text-md mt-2 text-gray-300 font-medium">

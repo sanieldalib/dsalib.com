@@ -28,7 +28,7 @@ const RandomRadialImage = (props: RandomRadialTokenUrl) => {
           <Loader />
         )}
         <div className="p-4">
-          <h1 className="text-lg handwriting text-green-500">
+          <h1 className="text-lg font-medium text-green-500">
             #{props.tokenId} • {data?.name}
           </h1>
         </div>
@@ -48,7 +48,7 @@ const RandomRadialGallery = (props: RandomRadialGalleryProps) => {
 
   return (
     <div className="w-full">
-      <h1 className="text-4xl handwriting text-green-500 text-center">
+      <h1 className="text-4xl font-semibold text-green-500 text-center">
         {props.owned ? "Your" : "All"} RandomRadials
       </h1>
       <div className="mt-8">

@@ -27,7 +27,7 @@ const ProjectItem = (props: ProjectItemProps) => {
         </div>
         <div className="mt-4 md:mt-0 md:ml-6 md:w-7/12">
           <Link href={props.href}>
-            <h1 className="text-3xl font-bold handwriting text-green-500 hover:text-green-400 cursor-pointer">
+            <h1 className="text-3xl font-bold text-green-500 hover:text-green-400 cursor-pointer">
               {props.name}
             </h1>
           </Link>

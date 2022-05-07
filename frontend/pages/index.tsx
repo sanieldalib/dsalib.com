@@ -34,9 +34,8 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="px-4">
-              <h1 className="text-4xl md:text-5xl text-center lg:text-left font-bold text-green-400">
-                <span className="invisible sm:visible">👋 </span>Hey there, I'm
-                Daniel!
+              <h1 className="text-4xl lg:text-5xl text-center lg:text-left font-bold text-green-400">
+                Hey there, I'm Daniel!
               </h1>
               {/* <h1 className="text-5xl font-light text-center logo-font lg:text-left text-green-400">
                 👋 Hey there, I'm Daniel!

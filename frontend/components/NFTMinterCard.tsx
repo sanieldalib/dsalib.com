@@ -10,7 +10,7 @@ const NFTMinterCard = () => {
           src={generateSvg(randomPreset("crypto"))}
         />
         <div className="p-4">
-          <h1 className="text-2xl handwriting text-green-500">
+          <h1 className="text-2xl font-semibold text-green-500">
             RandomRadials Minter
           </h1>
           <h2 className="text-md mt-2 text-gray-300 font-medium">

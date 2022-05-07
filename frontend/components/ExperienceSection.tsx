@@ -45,7 +45,7 @@ type ExperienceSectionComponent = React.FC<ExperienceSectionProps>;
 export const ExperienceSection: ExperienceSectionComponent = (props) => {
   return (
     <div>
-      <h1 className="text-3xl font-semibold mb-2 handwriting text-green-400">
+      <h1 className="text-3xl font-semibold mb-2 text-green-400">
         {props.title}
       </h1>
       <LineBreak />

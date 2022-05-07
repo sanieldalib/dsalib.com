@@ -19,7 +19,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body className="bg-shadow-black">
           <SharedScripts />
           <Main />
