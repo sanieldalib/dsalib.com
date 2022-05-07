@@ -41,7 +41,7 @@ const Navbar = ({ crypto }: NavbarProps) => {
           <div className="w-full flex justify-between items-center">
             <div className="flex flex-grow items-center divide-x divide-gray-500">
               {/* Logo */}
-              <div className="text-4xl text-green-600 hover:text-green-500 font-semibold pl-4 pr-4 logo-font">
+              <div className="text-4xl text-green-500 hover:text-green-400 font-semibold pl-4 pr-4 logo-font">
                 <Link href="/">DS</Link>
               </div>
               {/* Items */}
@@ -53,8 +53,8 @@ const Navbar = ({ crypto }: NavbarProps) => {
                         <div
                           className={classNames(
                             item.href === router.pathname
-                              ? "bg-gray-800 text-green-600"
-                              : "text-gray-400 hover:bg-gray-800 hover:text-green-600",
+                              ? "bg-gray-800 text-green-500"
+                              : "text-gray-400 hover:bg-gray-800 hover:text-green-500",
                             "px-2 py-1 rounded-md text-md font-medium cursor-pointer"
                           )}
                         >
@@ -66,8 +66,8 @@ const Navbar = ({ crypto }: NavbarProps) => {
                         <div
                           className={classNames(
                             item.href === router.pathname
-                              ? "bg-gray-800 text-green-600"
-                              : "text-gray-400 hover:bg-gray-800 hover:text-green-600",
+                              ? "bg-gray-800 text-green-500"
+                              : "text-gray-400 hover:bg-gray-800 hover:text-green-500",
                             "px-2 py-1 rounded-md text-md font-medium cursor-pointer"
                           )}
                         >
@@ -93,7 +93,7 @@ const Navbar = ({ crypto }: NavbarProps) => {
                 )}
               </div>
               <div className="md:hidden">
-                <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-green-900 focus:outline-none">
+                <Disclosure.Button className="flex items-center justify-center p-1 rounded-full text-green-500 hover:text-green-400 focus:outline-none">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-8 w-8" aria-hidden="true" />

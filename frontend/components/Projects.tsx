@@ -11,7 +11,7 @@ const Projects = () => {
         date="March 2022 - Present"
         blurb={[
           "An iOS and Android educational app for the Coptic Orthodox Church with nearly ",
-          <span className=" font-semibold">10,000 downloads</span>,
+          <span className="font-bold">10,000 downloads</span>,
           ". Includes liturgical, biblical, and patristic texts in 3 languages as well as a number of study tools.",
           <p className="mt-2">
             A backend and frontend for managing and distributing content allows
@@ -32,7 +32,7 @@ const Projects = () => {
         blurb="Generate radial art from any piece of text and mint your favorites into NFTs. My first experience with web3. Deployed to the Ethereum Ropsten testnet."
         tech={["Next.js, Ethereum, Solidity, Hardhat, TypeScript, web3-react"]}
         linkText="dsalib.com"
-        href="https://dsalib.com/crypto/randomradials"
+        href="/crypto/randomradials"
       />
       <ProjectItem
         key="Ikon Pass Reservations Bot"
@@ -47,7 +47,7 @@ const Projects = () => {
       <ProjectItem
         key="New Concept Cabinets"
         name="New Concept Cabinets"
-        img="ncc.jpg"
+        img="ncc.png"
         date="November 2020 - January 2021"
         blurb={[
           "Designed and built a website for New Concept Cabinets, a local cabinetry business.",
@@ -60,7 +60,7 @@ const Projects = () => {
       <ProjectItem
         key="TastyCarte"
         name="TastyCarte"
-        img="tc.jpg"
+        img="tc.png"
         date="March 2020 - May 2020"
         blurb={[
           "TastyCarte is an online ordering platform, launched at the start of the pandemic, designed for local restaurants. Built on ",
@@ -72,6 +72,22 @@ const Projects = () => {
         tech="Docker, AWS ECS, AWS SQS, PHP, Laravel"
         linkText="tastycarte.com"
         href="https://tastycarte.com"
+      />
+      <ProjectItem
+        key="Penn Mobile"
+        name="Penn Mobile iOS"
+        img="pennmobile.png"
+        date="August 2018 - May 2020"
+        blurb={[
+          "Penn Mobile is Penn's official student app. It provides campus essentials to the fingertips of ",
+          <span className="font-bold">over 4000 monthly users</span>,
+          ". Features include study room booking, dining hall hours and menus, course schedule, laundry machine availability, fitness facility hours, and quick access to emergency services.",
+        ]}
+        tech="Swift, Flask"
+        linkText="App Store"
+        href="https://apps.apple.com/us/app/penn-mobile/id944829399?platform=iphone"
+        linkText2="github.com"
+        href2="https://github.com/pennlabs/penn-mobile-ios"
       />
     </>
   );

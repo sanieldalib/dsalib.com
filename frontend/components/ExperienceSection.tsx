@@ -17,10 +17,10 @@ export const ExperienceItem: ExperienceItemComponent = (props) => {
       <div className="flex-shrink-0 pt-2">
         <Image width={48} height={48} src={props.image} />
       </div>
-      <div className="pl-4 text-green-500">
+      <div className="pl-4 text-green-400">
         <h2 className="text-xl font-semibold">{props.title}</h2>
 
-        <div className="text-lg text-gray-400 mt-0.5 ml-1">
+        <div className="text-md text-gray-400 mt-0.5 ml-1">
           {props.date} • {props.location}
         </div>
         <ul className="list-disc list-inside pt-1">
@@ -45,7 +45,7 @@ type ExperienceSectionComponent = React.FC<ExperienceSectionProps>;
 export const ExperienceSection: ExperienceSectionComponent = (props) => {
   return (
     <div>
-      <h1 className="text-3xl font-semibold mb-1 handwriting text-green-600">
+      <h1 className="text-3xl font-semibold mb-2 handwriting text-green-400">
         {props.title}
       </h1>
       <LineBreak />

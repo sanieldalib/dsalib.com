@@ -8,7 +8,7 @@ const Experience: NextPage = () => {
       <Page title={"Experience | Daniel Salib"}>
         <div className="w-full">
           <div className="flex justify-center">
-            <div className="flex flex-col px-4 py-4 lg:w-4/5 xl:w-3/5">
+            <div className="flex flex-col px-4 py-4 lg:w-4/5 xl:w-4/6">
               <WorkExperience />
               <Education />
             </div>

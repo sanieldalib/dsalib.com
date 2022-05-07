@@ -19,7 +19,7 @@ const RandomRadialPage = () => {
       image={`https://dsalib.com/api/generate/${data.name}`}
     >
       <div className="w-full">
-        <div className="flex flex-col lg:flex-row md:w-3/5 lg:w-5/6 px-6 py-2 items-center mx-auto md:mt-4 lg:my-8">
+        <div className="flex flex-col lg:flex-row md:w-4/6 lg:w-5/6 px-6 py-2 items-center mx-auto md:mt-4 lg:my-8">
           <div className="w-full order-first lg:order-last">
             <div>
               <img

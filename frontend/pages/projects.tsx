@@ -8,8 +8,8 @@ const ProjectPage: NextPage = () => {
     <div>
       <Page title={"Projects | Daniel Salib"}>
         <div className="flex justify-center">
-          <div className="flex flex-col px-4 py-4 lg:w-4/5 xl:w-4/6">
-            <h1 className="text-4xl font-bold text-green-600 mb-1">Projects</h1>
+          <div className="flex flex-col mt-2 lg:w-4/5 xl:w-4/6">
+            <h1 className="text-4xl font-bold text-green-500 mb-2">Projects</h1>
             <LineBreak />
             <Projects />
           </div>
