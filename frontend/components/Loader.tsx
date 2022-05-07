@@ -2,7 +2,7 @@ const Loader = () => {
   return (
     <div className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-lg leading-6 font-medium rounded-md  transform duration-150">
       <svg
-        className="animate-spin -ml-1 mr-2 h-5 w-5 dark:text-green-200 text-green-600"
+        className="animate-spin -ml-1 mr-2 h-5 w-5 text-green-200"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

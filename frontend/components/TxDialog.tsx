@@ -1,8 +1,7 @@
 import { useWeb3React } from "@web3-react/core";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
-import Account from "./Account";
-import { CHAIN_NAMES, formatEtherscanLink, shortenHex } from "../util";
+import { formatEtherscanLink, shortenHex } from "../util";
 import { Web3Provider } from "@ethersproject/providers";
 export type TxDialogProps = { chainId: number; hash: string };
 
@@ -35,7 +34,7 @@ const TxDialog = (props: TxDialogProps) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 opacity-40 bg-gray-600 dark:bg-gray-800" />
+              <Dialog.Overlay className="fixed inset-0 opacity-40 bg-gray-800" />
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
@@ -54,16 +53,16 @@ const TxDialog = (props: TxDialogProps) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white dark:bg-shadow-black shadow-xl rounded-2xl">
+              <div className="inline-block max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-shadow-black shadow-xl rounded-2xl">
                 <Dialog.Title
                   as="h3"
-                  className="text-xl font-medium leading-6 text-gray-900 dark:text-gray-200"
+                  className="text-xl font-medium leading-6 text-gray-200"
                 >
                   ⌛ Your Transaction is Processesing...
                 </Dialog.Title>
 
                 <div className="mt-4">
-                  <p className="text-md text-gray-500 dark:text-gray-400">
+                  <p className="text-md text-gray-400">
                     Your transaction,
                     <a
                       href={formatEtherscanLink("Transaction", [
@@ -72,7 +71,7 @@ const TxDialog = (props: TxDialogProps) => {
                       ])}
                       target="_blank"
                     >
-                      <span className="bg-gray-100 dark:bg-gray-700 hover:opacity-90 dark:text-white p-1 rounded-lg mx-0.5 ">
+                      <span className="bg-gray-700 hover:opacity-90 text-white p-1 rounded-lg mx-0.5 ">
                         {shortenHex(props.hash, 10)}
                       </span>
                     </a>{" "}
@@ -89,14 +88,14 @@ const TxDialog = (props: TxDialogProps) => {
                       ])}
                       target="_blank"
                       type="button"
-                      className="bg-green-100 dark:bg-green-400 dark:hover:bg-green-300 rounded-md hover:bg-green-200 text-green-900 px-2 py-2 text-md cursor-pointer font-medium"
+                      className="bg-green-400 hover:bg-green-300 rounded-md text-green-900 px-2 py-2 text-md cursor-pointer font-medium"
                     >
                       View on EtherScan
                     </a>
                   </div>
                   <button
                     type="button"
-                    className="px-4 py-2 text-md font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-green-500"
+                    className="px-4 py-2 text-md font-medium  bg-gray-700 hover:bg-gray-800 text-green-500"
                     onClick={closeModal}
                   >
                     Got it!

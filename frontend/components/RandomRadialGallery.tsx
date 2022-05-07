@@ -2,7 +2,6 @@ import { generateSvg, randomPreset } from "../controllers/artGenerator";
 import useIPFS from "../hooks/useIPFS";
 import {
   getAllRandomRadials,
-  getRandomRadialsUsage,
   getUsersRandomRadials,
 } from "../hooks/getRandomRadials";
 import Loader from "./Loader";
@@ -29,7 +28,7 @@ const RandomRadialImage = (props: RandomRadialTokenUrl) => {
           <Loader />
         )}
         <div className="p-4">
-          <h1 className="text-lg handwriting text-green-800 dark:text-green-500">
+          <h1 className="text-lg handwriting text-green-500">
             #{props.tokenId} • {data?.name}
           </h1>
         </div>
@@ -49,7 +48,7 @@ const RandomRadialGallery = (props: RandomRadialGalleryProps) => {
 
   return (
     <div className="w-full">
-      <h1 className="text-4xl handwriting text-green-800 dark:text-green-500 text-center">
+      <h1 className="text-4xl handwriting text-green-500 text-center">
         {props.owned ? "Your" : "All"} RandomRadials
       </h1>
       <div className="mt-8">
@@ -59,7 +58,7 @@ const RandomRadialGallery = (props: RandomRadialGalleryProps) => {
               data.map((metadata) => <RandomRadialImage {...metadata} />)
             ) : (
               <div
-                className="text-center text-2x mt-8 text-gray-700 dark:text-gray-300 transform duration-150 hover:scale-105 cursor-pointer"
+                className="text-center text-2x mt-8 text-gray-300 transform duration-150 hover:scale-105 cursor-pointer"
                 onClick={scrollToTop}
               >
                 😢 Mint one today!
@@ -70,7 +69,7 @@ const RandomRadialGallery = (props: RandomRadialGalleryProps) => {
           <Loader />
         ) : (
           <div
-            className="text-center text-2xl mt-8 text-gray-700 dark:text-gray-300 transform duration-150 hover:scale-105 cursor-pointer"
+            className="text-center text-2xl mt-8 text-gray-300 transform duration-150 hover:scale-105 cursor-pointer"
             onClick={scrollToTop}
           >
             😢 Mint one today!

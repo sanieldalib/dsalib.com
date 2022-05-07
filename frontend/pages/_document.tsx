@@ -20,7 +20,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body className="bg-white dark:bg-shadow-black">
+        <body className="bg-shadow-black">
           <SharedScripts />
           <Main />
           <NextScript />

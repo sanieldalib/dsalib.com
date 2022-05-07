@@ -1,17 +1,8 @@
-import { AlchemyProvider } from "@ethersproject/providers";
-import { Contract } from "ethers";
-import { RandomRadials } from "../../../contracts/types";
-import { contractForChain } from "../../../hooks/useRandomRadials";
-import RANDOMRADIALS_ABI from "../../../contracts/RandomRadials.json";
-import { GetStaticProps, GetStaticPaths, GetStaticPropsResult } from "next";
-import { ParsedUrlQuery } from "querystring";
-import { RandomRadialTokenMetadata } from "../../../types/RandomRadials";
 import Page from "../../../components/Page";
 import { randomPreset, generateSvg } from "../../../controllers/artGenerator";
 import { formatEtherscanLink } from "../../../util";
 import { getRandomRadialsInfo } from "../../../hooks/getRandomRadials";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import Loader from "../../../components/Loader";
 
 const RandomRadialPage = () => {
@@ -38,27 +29,23 @@ const RandomRadialPage = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 lg:mr-4 border-4 border-green-500 shadow-md p-4">
-            <h1 className="text-3xl handwriting text-green-800 dark:text-green-500">
+            <h1 className="text-3xl handwriting text-green-500">
               #{data.tokenId} • {data.name}
             </h1>
             <div className="flex flex-row items-baseline mt-2">
-              <div className="bg-green-50 hover:bg-green-100  text-green-900 dark:bg-gray-700 dark:text-green-500 dark:hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
+              <div className="bg-gray-700 text-green-500 hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
                 Token ID
               </div>
-              <h2 className="text-md text-gray-800 dark:text-gray-300">
-                {data.tokenId}
-              </h2>
+              <h2 className="text-md text-gray-300">{data.tokenId}</h2>
             </div>
             <div className="flex flex-row items-baseline mt-2">
-              <div className="bg-green-50 hover:bg-green-100  text-green-900 dark:bg-gray-700 dark:text-green-500 dark:hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
+              <div className="hover:bg-green-100  bg-gray-700 text-green-500 hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
                 Seed
               </div>
-              <h2 className="text-md text-gray-800 dark:text-gray-300">
-                {data.name}
-              </h2>
+              <h2 className="text-md text-gray-300">{data.name}</h2>
             </div>
             <div className="flex flex-row items-baseline mt-2">
-              <div className="bg-green-50 hover:bg-green-100  text-green-900 dark:bg-gray-700 dark:text-green-500 dark:hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
+              <div className="hover:bg-green-100  bg-gray-700 text-green-500 hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
                 Owner
               </div>
               <a
@@ -66,18 +53,16 @@ const RandomRadialPage = () => {
                 target="_blank"
                 className="overflow-scroll"
               >
-                <h2 className="text-md w-auto text-green-900 dark:text-green-300 hover:opacity-80 ">
+                <h2 className="text-md w-auto text-green-300 hover:opacity-80 ">
                   {data.owner}
                 </h2>
               </a>
             </div>
             <div className="flex flex-row items-baseline overflow-hidden">
-              <div className="bg-green-50 hover:bg-green-100  text-green-900 dark:bg-gray-700 dark:text-green-500 dark:hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
+              <div className="hover:bg-green-100  bg-gray-700 text-green-500 hover:text-green-800 rounded-md px-1 py-px mr-1 flex-grow-0 font-medium">
                 Description
               </div>
-              <h2 className="text-md mt-2 text-gray-800 dark:text-gray-300">
-                {data.description}
-              </h2>
+              <h2 className="text-md mt-2 text-gray-300">{data.description}</h2>
             </div>
           </div>
         </div>

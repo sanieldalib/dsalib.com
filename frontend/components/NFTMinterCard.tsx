@@ -10,13 +10,13 @@ const NFTMinterCard = () => {
           src={generateSvg(randomPreset("crypto"))}
         />
         <div className="p-4">
-          <h1 className="text-2xl handwriting text-green-800 dark:text-green-500">
+          <h1 className="text-2xl handwriting text-green-500">
             RandomRadials Minter
           </h1>
-          <h2 className="text-md mt-2 dark:text-gray-300 font-medium">
+          <h2 className="text-md mt-2 text-gray-300 font-medium">
             Mint generative NFTs seeded on a string of text.
           </h2>
-          <h2 className="text-md mt-2 dark:text-gray-400">
+          <h2 className="text-md mt-2 text-gray-400">
             My first foray into Web3.
           </h2>
         </div>

@@ -1,4 +1,3 @@
-import DSLink from "./DSLink";
 import Image, { StaticImageData } from "next/image";
 import LineBreak from "./LineBreak";
 
@@ -18,19 +17,16 @@ export const ExperienceItem: ExperienceItemComponent = (props) => {
       <div className="flex-shrink-0 pt-2">
         <Image width={48} height={48} src={props.image} />
       </div>
-      <div className="pl-4 dark:text-green-500">
+      <div className="pl-4 text-green-500">
         <h2 className="text-xl font-semibold">{props.title}</h2>
 
-        <div className="text-lg text-gray-500 dark:text-gray-400 mt-0.5 ml-1">
+        <div className="text-lg text-gray-400 mt-0.5 ml-1">
           {props.date} • {props.location}
         </div>
         <ul className="list-disc list-inside pt-1">
           {props.items &&
             props.items.map((item, idx) => (
-              <li
-                className="text-lg text-gray-700 dark:text-gray-300"
-                key={idx}
-              >
+              <li className="text-lg text-gray-300" key={idx}>
                 {item}
               </li>
             ))}

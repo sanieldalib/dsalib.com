@@ -13,12 +13,8 @@ const Page: React.FC<PageProps> = (props) => {
   const defaultTitle = "Daniel Salib - dsalib.com";
   const defaultDescription = "Checkout Daniel Salib on dsalib.com";
   return (
-    <div className="bg-white dark:bg-shadow-black">
+    <div className="bg-shadow-black">
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
-          rel="stylesheet"
-        ></link>
         <link
           rel="apple-touch-icon"
           sizes="72x72"

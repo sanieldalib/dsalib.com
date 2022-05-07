@@ -13,9 +13,10 @@ const Projects = () => {
           "An iOS and Android educational app for the Coptic Orthodox Church with nearly ",
           <span className=" font-semibold">10,000 downloads</span>,
           ". Includes liturgical, biblical, and patristic texts in 3 languages as well as a number of study tools.",
-          <br />,
-          <br />,
-          " A backend and frontend for managing and distributing content allows for over-the-air content updates.",
+          <p className="mt-2">
+            A backend and frontend for managing and distributing content allows
+            for over-the-air content updates.
+          </p>,
         ]}
         tech={["Flutter, FastAPI (Python), Svelte, Kubernetes"]}
         linkText="App Store"
