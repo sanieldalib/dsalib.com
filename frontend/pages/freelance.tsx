@@ -5,7 +5,13 @@ import Page from "../components/Page";
 const FreelancePage: NextPage = () => {
   return (
     <div>
-      <Page title="Freelance | Daniel Salib">
+      <Page
+        title="Freelance | Daniel Salib"
+        endpoint="freelance"
+        description="Let's build something together. Whatever
+        you have in mind, I will help refine your ideas and turn them into
+        beautiful apps. Contact me at dsalib.com/freelance"
+      >
         <div className="topo-pattern bg-gray-800 flex flex-col text-gray-300 py-8 lg:w-4/5 xl:w-4/6 mx-auto px-6 lg:rounded-md lg:mt-2">
           {/* <div className="lg:w-4/5 xl:w-4/6 mx-auto"> */}
           <h1 className="text-5xl font-bold text-green-400">

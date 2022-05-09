@@ -6,9 +6,13 @@ import Projects from "../components/Projects";
 const ProjectPage: NextPage = () => {
   return (
     <div>
-      <Page title={"Projects | Daniel Salib"}>
+      <Page
+        title={"Projects | Daniel Salib"}
+        endpoint="projects"
+        description="View my prior work and projects at dsalib.com"
+      >
         <div className="flex justify-center">
-          <div className="flex flex-col mt-2 lg:w-4/5 xl:w-4/6">
+          <div className="flex flex-col mt-2 lg:w-4/5 xl:w-4/6 px-4">
             <h1 className="text-4xl font-bold text-green-500 mb-2">Projects</h1>
             <LineBreak />
             <Projects />

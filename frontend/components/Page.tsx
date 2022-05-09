@@ -6,12 +6,16 @@ type PageProps = {
   title?: string;
   description?: string;
   image?: string;
-  url?: string;
+  endpoint?: string;
 };
 
 const Page: React.FC<PageProps> = (props) => {
   const defaultTitle = "Daniel Salib - dsalib.com";
   const defaultDescription = "Checkout Daniel Salib on dsalib.com";
+  const prefix = "https://dsalib.com/";
+  const url = `${prefix}${props.endpoint}`;
+  const defaultImage = "socialcover.png";
+  const image = `${prefix}${props.image || defaultImage}`;
   return (
     <div className="bg-shadow-black">
       <Head>
@@ -49,22 +53,22 @@ const Page: React.FC<PageProps> = (props) => {
         />
         {/* Facebook Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://dsalib.com/" />
+        <meta property="og:url" content={url} />
         <meta property="og:title" content={props.title || defaultTitle} />
         <meta
           property="og:description"
           content={props.description || defaultDescription}
         />
-        <meta property="og:image" content={props.image} />
+        <meta property="og:image" content={image} />
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://dsalib.com/" />
+        <meta property="twitter:url" content={url} />
         <meta property="twitter:title" content={props.title || defaultTitle} />
         <meta
           property="twitter:description"
-          content="Checkout Daniel Salib on dsalib.com"
+          content={props.description || defaultDescription}
         />
-        <meta property="twitter:image" content={props.image} />
+        <meta property="twitter:image" content={image} />
       </Head>
       <Navbar />
       <div className="min-h-screen">{props.children}</div>
