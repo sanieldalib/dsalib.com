@@ -30,10 +30,12 @@ const FreelancePage: NextPage = () => {
             <span className="font-semibold"> You won't regret it.</span>
           </p>
           <div className="mt-4 md:w-1/2 lg:mx-0 text-xl">
-            <Link href="/projects">
-              <div className="inline-block font-bold hover:bg-green-300  bg-gray-700 text-green-500 hover:text-green-800 rounded-md px-2 py-2 flex-grow text-center cursor-pointer shadow-md">
-                View my work →
-              </div>
+            <Link href="/projects" passHref>
+              <a>
+                <div className="inline-block font-bold hover:bg-green-300  bg-gray-700 text-green-500 hover:text-green-800 rounded-md px-2 py-2 flex-grow text-center cursor-pointer shadow-md">
+                  View my work →
+                </div>
+              </a>
             </Link>
 
             <a href="mailto:danielsalib98@gmail.com?subject=Freelance Inquiry">

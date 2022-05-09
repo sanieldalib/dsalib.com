@@ -57,10 +57,12 @@ const Home: NextPage = () => {
                 >
                   Experience →
                 </div>
-                <Link href="/projects">
-                  <div className="md:ml-2 font-bold hover:bg-green-300  bg-gray-700 text-green-500 hover:text-green-800 rounded-md px-2 py-2 text-center cursor-pointer shadow-md mb-2">
-                    Projects →
-                  </div>
+                <Link href="/projects" passHref>
+                  <a>
+                    <div className="md:ml-2 font-bold hover:bg-green-300  bg-gray-700 text-green-500 hover:text-green-800 rounded-md px-2 py-2 text-center cursor-pointer shadow-md mb-2">
+                      Projects →
+                    </div>
+                  </a>
                 </Link>
 
                 <a href="mailto:danielsalib98@gmail.com?subject=Freelance Inquiry">

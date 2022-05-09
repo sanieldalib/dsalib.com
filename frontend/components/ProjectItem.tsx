@@ -26,10 +26,12 @@ const ProjectItem = (props: ProjectItemProps) => {
           </a>
         </div>
         <div className="mt-4 md:mt-0 md:ml-6 md:w-7/12">
-          <Link href={props.href}>
-            <h1 className="text-3xl font-bold text-green-500 hover:text-green-400 cursor-pointer">
-              {props.name}
-            </h1>
+          <Link href={props.href} passHref>
+            <a>
+              <h1 className="text-3xl font-bold text-green-500 hover:text-green-400 cursor-pointer">
+                {props.name}
+              </h1>
+            </a>
           </Link>
           <div className="text-md text-gray-400 mb-2">{props.date}</div>
           <div className="text-xl text-gray-100 mb-2">{props.blurb}</div>

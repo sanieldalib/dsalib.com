@@ -11,11 +11,14 @@ type PageProps = {
 
 const Page: React.FC<PageProps> = (props) => {
   const defaultTitle = "Daniel Salib - dsalib.com";
-  const defaultDescription = "Checkout Daniel Salib on dsalib.com";
-  const prefix = "https://dsalib.com/";
-  const url = `${prefix}${props.endpoint}`;
-  const defaultImage = "socialcover.png";
+  const defaultDescription =
+    "Daniel Salib - Mobile CI/CD Software Engineer at Atlassian. In my free time, I enjoy freelancing, cycling, snowboarding, and learning.";
+  const httpsPrefix = "https://dsalib.com/";
+  const prefix = "http://dsalib.com/";
+  const url = `${httpsPrefix}${props.endpoint || ""}`;
+  const defaultImage = "cover.png";
   const image = `${prefix}${props.image || defaultImage}`;
+  const httpsImage = `${httpsPrefix}${props.image || defaultImage}`;
   return (
     <div className="bg-shadow-black">
       <Head>
@@ -55,11 +58,16 @@ const Page: React.FC<PageProps> = (props) => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
         <meta property="og:title" content={props.title || defaultTitle} />
+        <meta property="og:site_name" content="dsalib.com" />
         <meta
           property="og:description"
           content={props.description || defaultDescription}
         />
         <meta property="og:image" content={image} />
+        <meta property="og:image:secure_url" content={httpsImage} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1078" />
+        <meta property="og:image:height" content="600" />
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={url} />

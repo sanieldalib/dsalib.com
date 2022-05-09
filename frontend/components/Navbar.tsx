@@ -42,7 +42,9 @@ const Navbar = ({ crypto }: NavbarProps) => {
             <div className="flex flex-grow items-center divide-x divide-gray-500">
               {/* Logo */}
               <div className="text-4xl text-green-500 hover:text-green-400 font-semibold pl-4 pr-4 logo-font">
-                <Link href="/">DS</Link>
+                <Link href="/" passHref>
+                  <a>DS</a>
+                </Link>
               </div>
               {/* Items */}
               <div className="hidden md:block">
@@ -62,8 +64,8 @@ const Navbar = ({ crypto }: NavbarProps) => {
                         </div>
                       </a>
                     ) : (
-                      <Link href={item.href} key={item.name}>
-                        <div
+                      <Link href={item.href} key={item.name} passHref>
+                        <a
                           className={classNames(
                             item.href === router.pathname
                               ? "bg-gray-800 text-green-500"
@@ -72,7 +74,7 @@ const Navbar = ({ crypto }: NavbarProps) => {
                           )}
                         >
                           {item.name}
-                        </div>
+                        </a>
                       </Link>
                     )
                   )}
