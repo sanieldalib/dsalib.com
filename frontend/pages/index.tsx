@@ -17,7 +17,7 @@ const scrollToWork = () => {
 const Home: NextPage = () => {
   return (
     <div>
-      <Page title={"Home | Daniel Salib"}>
+      <Page title={"Daniel Salib"}>
         {/* Hello - Intro Section */}
         <div className="w-full bg-gray-800">
           <div className="rounded-lg flex flex-col lg:flex-row lg:w-4/5 xl:w-4/6 items-center lg:space-x-10 mx-auto py-4 lg:py-16">

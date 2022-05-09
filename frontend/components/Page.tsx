@@ -10,7 +10,7 @@ type PageProps = {
 };
 
 const Page: React.FC<PageProps> = (props) => {
-  const defaultTitle = "Daniel Salib - dsalib.com";
+  const defaultTitle = "Daniel Salib";
   const defaultDescription =
     "Daniel Salib - Mobile CI/CD Software Engineer at Atlassian. In my free time, I enjoy freelancing, cycling, snowboarding, and learning.";
   const httpsPrefix = "https://dsalib.com/";
@@ -69,7 +69,8 @@ const Page: React.FC<PageProps> = (props) => {
         <meta property="og:image:width" content="1078" />
         <meta property="og:image:height" content="600" />
         {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="https://dsalib.com" />
         <meta property="twitter:url" content={url} />
         <meta property="twitter:title" content={props.title || defaultTitle} />
         <meta
