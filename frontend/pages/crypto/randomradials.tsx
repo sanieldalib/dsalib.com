@@ -4,8 +4,7 @@ import { useState } from "react";
 
 import useRandomRadials from "../../hooks/useRandomRadials";
 import RandomRadialGallery from "../../components/RandomRadialGallery";
-import { FaEthereum, FaGithub } from "react-icons/fa";
-import { formatEtherscanLink } from "../../util";
+import { FaGithub } from "react-icons/fa";
 import { useWeb3React } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
 import { getRandomRadialsUsage } from "../../hooks/getRandomRadials";
@@ -89,7 +88,7 @@ const RandomRadialMinter = () => {
                 value={seed}
                 className="mt-2 py-2 bg-gray-200 px-4 rounded-md text-md hover:ring-2 focus:outline-none ring-gray-800 flex-grow"
               />
-              {active ? (
+              {/* {active ? (
                 !!randomRadials &&
                 !!contractUsage.data &&
                 contractUsage.data.minted < contractUsage.data.total &&
@@ -129,11 +128,11 @@ const RandomRadialMinter = () => {
                 <div className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-lg leading-6 font-medium rounded-md bg-green-500  hover:bg-green-400 transform duration-150 hover:shadow-md flex-grow text-center cursor-pointer">
                   Connect Your Wallet to Mint
                 </div>
-              )}
+              )} */}
               <div>
                 <hr className="mt-3 border-gray-400 opacity-70" />
                 <div className="mt-3 space-x-1 flex flex-row justify-between items-center">
-                  {!!contractUsage.data && (
+                  {/* {!!contractUsage.data && (
                     <a
                       href={formatEtherscanLink("Token", [
                         3,
@@ -145,7 +144,7 @@ const RandomRadialMinter = () => {
                         {contractUsage.data.minted} / {contractUsage.data.total}
                       </div>
                     </a>
-                  )}
+                  )} */}
                   <div className="space-x-1 flex flex-row justify-end items-center">
                     <a
                       href="https://github.com/sanieldalib/dsalib.com/blob/main/eth/contracts/RandomRadials.sol"
@@ -155,7 +154,7 @@ const RandomRadialMinter = () => {
                         <FaGithub />
                       </div>
                     </a>
-                    {
+                    {/* {
                       <a
                         href={formatEtherscanLink("Account", [
                           3,
@@ -167,7 +166,7 @@ const RandomRadialMinter = () => {
                           <FaEthereum />
                         </div>
                       </a>
-                    }
+                    } */}
                   </div>
                 </div>
               </div>
