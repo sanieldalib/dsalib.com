@@ -1,10 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  randomPreset,
-  generateSvg,
-} from "../../../controllers/artGenerator";
-import { NFTStorage, File } from "nft.storage";
+import { randomPreset, generateSvg } from "../../../controllers/artGenerator";
+import { NFTStorage, File, Token } from "nft.storage";
 
 export default async function handler(
   req: NextApiRequest,
@@ -25,7 +22,7 @@ export default async function handler(
     token: nftStorageApiKey,
   });
 
-  if (Array.isArray(seed)) {
+  if (!seed || Array.isArray(seed)) {
     res.status(400).json({ error: "Invalid seed." });
     return;
   }

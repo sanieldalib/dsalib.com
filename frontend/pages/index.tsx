@@ -43,7 +43,7 @@ const Home: NextPage = () => {
               <p className="text-xl pt-2 text-center lg:text-left text-gray-400">
                 Welcome! I am currently a Software Engineer at{" "}
                 <DSLink href="https://www.atlassian.com">Atlassian</DSLink>{" "}
-                working on CI/CD for mobile teams. I studied statistics, data
+                working on Developer Productivity and CI/CD for mobile teams. I studied statistics, data
                 science, and computer science at{" "}
                 <DSLink href="https://upenn.edu">UPenn</DSLink>. In my free
                 time, I enjoy <DSLink href="/freelance">freelancing</DSLink>,{" "}
