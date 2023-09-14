@@ -14,8 +14,8 @@ const Projects = () => {
           <span className="font-bold">14,000 users</span>,
           " serving as a vital education and reference tool for Coptic Orthodox services.",
           <p className="mt-2">
-            Built a Git-backed, collaborative, multi-language content editor for
-            app content using Svelte, FastAPI, and Kubernetes.
+            Built a Git-backed, collaborative, multi-language editor for app
+            content using Svelte, FastAPI, and Kubernetes.
           </p>,
           <p className="mt-2">
             Crafted an over-the-air content delivery system, enabling apps to
