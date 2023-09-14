@@ -23,7 +23,7 @@ export const ExperienceItem: ExperienceItemComponent = (props) => {
         <div className="text-md text-gray-400 mt-0.5 ml-1">
           {props.date} • {props.location}
         </div>
-        <ul className="list-disc list-inside pt-1">
+        <ul className="list-disc list-outside pt-1">
           {props.items &&
             props.items.map((item, idx) => (
               <li className="text-lg text-gray-300" key={idx}>

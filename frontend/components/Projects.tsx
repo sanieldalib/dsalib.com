@@ -10,15 +10,22 @@ const Projects = () => {
         img="snt.png"
         date="March 2022 - Present"
         blurb={[
-          "An iOS and Android educational app for the Coptic Orthodox Church with nearly ",
-          <span className="font-bold">10,000 downloads</span>,
-          ". Includes liturgical, biblical, and patristic texts in 3 languages as well as a number of study tools.",
+          "Flutter app available on iOS and Android with over ",
+          <span className="font-bold">14,000 users</span>,
+          " serving as a vital education and reference tool for Coptic Orthodox services.",
           <p className="mt-2">
-            A backend and frontend for managing and distributing content allows
-            for over-the-air content updates.
+            Built a Git-backed, collaborative, multi-language content editor for
+            app content using Svelte, FastAPI, and Kubernetes.
+          </p>,
+          <p className="mt-2">
+            Crafted an over-the-air content delivery system, enabling apps to
+            seamlessly receive and integrate the latest content updates without
+            updates or user intervention.
           </p>,
         ]}
-        tech={["Flutter, FastAPI (Python), Svelte, Kubernetes"]}
+        tech={[
+          "Flutter, FastAPI, Svelte, Kubernetes, Docker, Azure, TypeScript, Python, Dart",
+        ]}
         linkText="App Store"
         href="https://apps.apple.com/us/app/in-spirit-and-truth/id1498587179"
         linkText2="Google Play"

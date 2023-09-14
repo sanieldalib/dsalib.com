@@ -7,47 +7,66 @@ import AtlassianImage from "../public/atlassian.png";
 import AWSImage from "../public/aws.png";
 import CBSImage from "../public/cbsi.png";
 import PennImage from "../public/penn.png";
+import SiroImage from "../public/siro.png";
 
 export const WorkExperience = () => {
   return (
     <>
       <ExperienceSection title="Work">
         <ExperienceItem
+          key={"Siro"}
+          title={[
+            <DSLink href="https://siro.ai">Siro.ai</DSLink>,
+            ", Software Engineer",
+          ]}
+          image={SiroImage}
+          date="June 2022 - Present"
+          location="New York City, NY (Remote)"
+          items={[
+            [
+              "Architected and engineered a search engine for transcripts using GCP and ",
+              <DSLink href="https://www.meilisearch.com/">Meilisearch</DSLink>,
+              " scaling to handle over 2.5 million recordings and powering search for 20,000 users",
+            ],
+            "Created an iOS SDK to seamlessly integrate core Siro features into partner apps - released for both iOS and React Native",
+            "Spearheaded the adoption of testing and CI/CD practices across all repositories, resulting in a significant reduction in errors and deployment times",
+            "Conceptualized and launched a management web client using TypeScript and Svelte, which has become a critical offering for customers",
+            [
+              <span className="font-bold">Tech: </span>,
+              "Typescript, Svelte, Swift, ",
+              <DSLink href="https://www.meilisearch.com/">Meilisearch</DSLink>,
+              ", GCP, Firebase",
+            ],
+          ]}
+        />
+        <ExperienceItem
           key={"Atlassian"}
           title={[
             <DSLink href="https://atlassian.com">Atlassian</DSLink>,
-            ", Software Engineer II",
+            ", Software Engineer II — Developer Tooling - Mobile CI",
           ]}
           image={AtlassianImage}
           date="July 2020 - Present"
           location="Mountain View, CA (Remote)"
           items={[
-            "Software Engineer II on the Developer Productivity Services Team",
+            "Maintain build infrastructure supporting nearly 20,000 mobile builds weekly and >100 mobile engineers",
             [
-              "Developing Ephemeral macOS CI builders with ",
+              "Designed and implemented per-build macOS runners for Bitbucket Pipelines, utilizing ",
               <DSLink href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html">
                 macOS EC2s
               </DSLink>,
-              " + ",
-              <DSLink href="https://veertu.com">Veertu Anka</DSLink>,
+              " with ",
+              <DSLink href="https://tart.run/">Tart</DSLink>,
+              ", and developed a monitoring solution using Go ",
             ],
-            "Tooling for building, testing, signing, and distributing Mobile Apps",
-            "Maintain Android, iOS, and macOS CI/CD infrastructure for Atlassian SWEs",
-            "Promoted to Software Engineer II during March 2022",
+            "Championed the migration from Intel to Apple Silicon, resulting in a 51% boost in build speeds, annual cost savings of approximately $90,000, and a monthly reduction of nearly 900 hours in developer time",
+            "Develop internal tools for signing management, dependency caching, code quality, building, testing, distribution, and other common mobile CI items",
             [
               <span className="font-bold">Tech: </span>,
-              <DSLink href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html">
-                macOS EC2s
-              </DSLink>,
+              "AWS, ",
+              <DSLink href="https://tart.run/">Tart</DSLink>,
               ", ",
-              <DSLink href="https://veertu.com/">Veertu Anka</DSLink>,
-              ", ",
-              <DSLink href="https://www.terraform.io/">Terraform</DSLink>,
-              ", ",
-              <DSLink href="https://www.packer.io/">Packer</DSLink>,
-              ", ",
-              <DSLink href="https://www.ansible.com/">Ansible</DSLink>,
-              ", Docker, Python",
+              "Docker, Python, Go, Ruby, Bash, Terraform, Packer, Ansible, Splunk, SignalFx",
             ],
           ]}
         />
